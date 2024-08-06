@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/ https://www.googletagmanager.com/ https://apis.google.com/">
+<meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+<link rel="stylesheet" href="./CSS/auth.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <a href="#" class="logo"><img src="./img/logoB.png" alt="Logo"></a>
+        </nav>
+        <div class="Container">
+            <form id="login-form">
+                <h1>Login/Sign up</h1>
+                <div class="content">
+                    <div class="button-container">
+                        <label for="google-button" class="login-button">
+                            <img src="./img/googleicon.png" alt="Google Icon">
+                            Login with Google
+                        </label>
+                        <input type="button" id="google-button" style="display:none;"> <!-- Invisible button -->
+                        
+                        <div class="separator">
+                            <span class="separator-text">or</span>
+                        </div>
+            
+                        <label for="fb-button" class="login-button">
+                            <img src="./img/fbicon.png" alt="Facebook Icon">
+                            Login with Facebook
+                        </label>
+                        <input type="button" id="fb-button" style="display:none;"> <!-- Invisible button -->
+                    </div>
+                </div>
+            </form>            
+        </div>
+    </div>
+<script src="./JS/firebase.js" defer type="module"></script>
+</body>
+</html>

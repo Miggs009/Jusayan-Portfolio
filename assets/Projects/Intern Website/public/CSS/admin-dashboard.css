@@ -1,0 +1,716 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  zoom: 70%;
+}
+.bookmenu {
+  background-color: #C5BEE7;
+  height: 80px;
+  display: flex;
+
+}
+.current-page {
+  background-color: #f0f0f0;
+  border-radius: 50px;
+}
+.booking-item {
+border: 1px solid #ccc; /* Border around each booking item */
+padding: 10px; /* Padding inside each booking item */
+margin-bottom: 20px; /* Margin between booking items */
+}
+
+#menuIcon {
+  width: 40px;
+  height: 40px;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 80px; /* Adjust this value according to your design */
+  right: 0;
+  font-size: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 999;
+}
+
+.dropdown-menu a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+
+.btn-success {
+  background-color: #28a745; /* Green color */
+  border-color: #28a745;
+}
+
+.dark-green-btn {
+background-color: #006400; /* Dark green color */
+border-color: #006400; /* Dark green color */
+}
+
+.dark-green-btn:hover {
+background-color: #023c02; /* Darker shade of green on hover */
+border-color: #023c02; /* Darker shade of green on hover */
+}
+/* CSS for modal */
+.modal {
+display: none;
+position: fixed;
+z-index: 1001;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.9); /* Transparent black background */
+}
+
+.modal-content {
+background-color: #fefefe;
+position: relative;
+margin: auto;
+padding: 20px;
+border-radius: 10px;
+width: 80%; /* Set width for the modal content */
+height: auto; /* Allow modal to grow vertically */
+}
+
+/* Close button styles */
+.close {
+position: absolute;
+top: 15px;
+right: 15px;
+color: #d4d4d4;
+font-size: 30px;
+cursor: pointer;
+}
+
+.modalHeader {
+text-align: center;
+font-family: Arial, sans-serif;
+}
+
+.modalFilter {
+padding: 10px;
+}
+
+.modalFilter label {
+font-size: 25px;
+}
+
+.modalFilter input {
+flex: 1;
+height: 30px;
+font-size: 16px;
+width: 100%; /* Set input width to 100% */
+}
+
+.nannyList {
+font-size: 20px;
+padding: 10px;
+}
+
+.assignNannyButton {
+width: 100%; /* Make button full width */
+height: 40px;
+font-size: 20px;
+margin-top: 20px; /* Add some space above the button */
+}
+
+/* CSS for Image Modal */
+#imageModal {
+display: none; /* Hide modal by default */
+position: fixed; /* Stay in place */
+z-index: 1001; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgba(0, 0, 0, 0.9); /* Transparent black background */
+}
+
+#modalImage {
+margin: auto;
+display: block;
+max-width: 90%; /* Maximum width for the image */
+max-height: 90%; /* Maximum height for the image */
+}d,
+.booking-table td:last-child {
+white-space: normal; /* Allow line breaks */
+}
+
+.mt-5{
+margin-top: 20px !important;
+}
+.actBtn{
+margin-bottom: 5px;
+}
+.booking-table tr:nth-child(even) {
+background-color: #f2f2f2; /* Light gray for even rows */
+}
+
+.booking-table tr:nth-child(odd) {
+background-color: #fff; /* White for odd rows */
+}
+nav{
+background-color: #ccccff;
+text-align: left;
+height: 80px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-left: 80px;
+padding-right: 50px;
+flex-direction: row;
+position: fixed; /* Ensure bookmenu stays fixed */
+top: 0; /* Stick it to the top */
+width: 100%; /* Ensure it spans the entire width */
+z-index: 1000; /* Ensure it's above other content */
+}
+nav ul{
+width: 100%;
+list-style: none;
+display: flex;
+padding-top:10px;
+padding-right:20px;
+justify-content: flex-end;
+align-items: center;
+}
+nav img{
+margin-top:-3px;
+width:200px;
+height:50px;
+}
+nav li{
+height: 50px;
+}
+nav a{
+font-size: 20px;
+height: 100%;
+padding: 0 30px;
+text-decoration: none;
+display: flex;
+align-items: center;
+color: black;
+}
+nav a:hover{
+background-color: #f0f0f0;
+border-radius: 50px;
+}
+nav li:first-child{
+margin-right: auto;
+}
+.sidebar{
+position: fixed;
+top: 0; 
+right: 0;
+height: 100vh;
+width: 250px;
+background-color: rgba(215, 210, 210, 0.15);
+backdrop-filter: blur(12px);
+box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+list-style: none;
+display: none;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+z-index:9999;
+}
+.sidebar li{
+width: 100%;
+}
+.sidebar a{
+width: 100%;
+}
+.sidebar a:hover{
+background:#C5BEE7;
+border-radius: 0px;
+}
+#menuIcon {
+  width: 40px;
+  height: 40px;
+}
+.logoB{
+display: block;
+position: fixed;
+width: 220px;
+left: 10px;
+}
+.logo{
+display: none;
+float: left;
+position: fixed;
+max-width: 50px;
+max-height: 80px;
+right: 80%;
+}
+.searchFilter{
+position: fixed;
+display: flex;
+align-items: center;
+justify-content: space-between;
+top: 8%;
+}
+.booking-container{
+margin-top: 2%;
+}
+.uploaded-image {
+max-width: 30%; /* Set maximum width to ensure it doesn't exceed the modal width */
+max-height: 600px; /* Set maximum height to maintain aspect ratio and prevent stretching */
+margin-left: 600px;
+width: auto; /* Allow the image to adjust its width while maintaining aspect ratio */
+height: auto; /* Allow the image to adjust its height while maintaining aspect ratio */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+.modal-content {
+  margin: 5% auto;
+  padding: 10px;
+  max-width: 90%; /* Adjust as needed */
+}
+.booking-container{
+  margin-top: 10%;
+}
+.uploaded-image {
+  max-width: 100%; /* Set maximum width to ensure it doesn't exceed the modal width */
+  max-height: 600px; /* Set maximum height to maintain aspect ratio and prevent stretching */
+  margin-left: 10px;
+  width: auto; /* Allow the image to adjust its width while maintaining aspect ratio */
+  height: auto; /* Allow the image to adjust its height while maintaining aspect ratio */
+}
+}
+/* Admin Buttons CSS */
+.menu-button{
+display: none;
+}
+.details-btn{
+appearance: none;
+backface-visibility: hidden;
+background-color: #27ae60;
+border-radius: 8px;
+border-style: none;
+box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+font-size: 16px;
+font-weight: 600;
+letter-spacing: normal;
+line-height: 1.5;
+outline: none;
+overflow: hidden;
+padding: 10px 15px;
+position: relative;
+text-align: center;
+text-decoration: none;
+transform: translate3d(0, 0, 0);
+transition: all .3s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: top;
+white-space: nowrap;
+}
+
+.details-btn:hover, .completed:hover {
+background-color: #1e8449;
+opacity: 1;
+transform: translateY(0);
+transition-duration: .35s;
+box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.details-btn:active, .completed:active {
+transform: translateY(2px);
+transition-duration: .35s;
+} 
+.paid,.assign, .completed{
+appearance: none;
+backface-visibility: hidden;
+background-color: #ffbd03;
+border-radius: 8px;
+border-style: none;
+box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+font-size: 16px;
+font-weight: 600;
+letter-spacing: normal;
+line-height: 1.5;
+outline: none;
+overflow: hidden;
+padding: 10px 15px;
+position: relative;
+text-align: center;
+text-decoration: none;
+transform: translate3d(0, 0, 0);
+transition: all .3s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: top;
+white-space: nowrap;
+}
+.paid:hover, .assign:hover , .completed:hover{
+background-color: #9b7c25;
+opacity: 1;
+transform: translateY(0);
+transition-duration: .35s;
+box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.paid:active, .assign:active, .completed:active {
+transform: translateY(2px);
+transition-duration: .35s;
+}
+.viewimg{
+appearance: none;
+backface-visibility: hidden;
+background-color: #4681f4;
+border-radius: 8px;
+border-style: none;
+box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+font-size: 16px;
+font-weight: 600;
+letter-spacing: normal;
+line-height: 1.5;
+outline: none;
+overflow: hidden;
+padding: 10px 15px;
+position: relative;
+text-align: center;
+text-decoration: none;
+transform: translate3d(0, 0, 0);
+transition: all .3s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: top;
+white-space: nowrap;
+}
+.viewimg:hover{
+background-color: #2d4981;
+opacity: 1;
+transform: translateY(0);
+transition-duration: .35s;
+box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.viewimg:active{
+transform: translateY(2px);
+transition-duration: .35s;
+}
+#uploadImageButton{
+appearance: none;
+backface-visibility: hidden;
+background-color:#a881af;
+border-radius: 8px;
+border-style: none;
+box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+font-size: 16px;
+font-weight: 600;
+letter-spacing: normal;
+line-height: 1.5;
+outline: none;
+overflow: hidden;
+padding: 10px 15px;
+position: relative;
+text-align: center;
+text-decoration: none;
+transform: translate3d(0, 0, 0);
+transition: all .3s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: top;
+white-space: nowrap;
+}
+#uploadImageButton:hover{
+background-color: #694270;
+opacity: 1;
+transform: translateY(0);
+transition-duration: .35s;
+box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+#uploadImageButton:active{
+transform: translateY(2px);
+transition-duration: .35s;
+}
+.review{
+appearance: none;
+backface-visibility: hidden;
+background-color: #ED0800;
+border-radius: 8px;
+border-style: none;
+box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+font-size: 16px;
+font-weight: 600;
+letter-spacing: normal;
+line-height: 1.5;
+outline: none;
+overflow: hidden;
+padding: 10px 15px;
+position: relative;
+text-align: center;
+text-decoration: none;
+transform: translate3d(0, 0, 0);
+transition: all .3s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: top;
+white-space: nowrap;
+}
+.review:hover{
+background-color: #642320;
+opacity: 1;
+transform: translateY(0);
+transition-duration: .35s;
+box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.review:active{
+transform: translateY(2px);
+transition-duration: .35s;
+}
+.assignNannyButton, .upload{
+appearance: none;
+backface-visibility: hidden;
+background-color: #4681f4;
+border-radius: 8px;
+border-style: none;
+box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-size: 16px;
+font-weight: 600;
+letter-spacing: normal;
+line-height: 1.5;
+outline: none;
+overflow: hidden;
+position: relative;
+text-align: center;
+text-decoration: none;
+transform: translate3d(0, 0, 0);
+transition: all .3s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: top;
+white-space: nowrap;
+}
+.assignNannyButton:hover, .upload:hover{
+background-color: #2d4981;
+opacity: 1;
+transform: translateY(0);
+transition-duration: .35s;
+box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.assignNannyButton:active, .upload:active{
+transform: translateY(2px);
+transition-duration: .35s;
+}
+.statusFilter{
+height:30px;
+width: 150px;
+font-size:15px;
+margin-left: 10px;
+}
+  /* User Management CSS */
+  .save-button {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #27ae60;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 10px 15px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  
+  .save-button:hover {
+    background-color: #1e8449;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+  }
+  
+  .save-button:active {
+    transform: translateY(2px);
+    transition-duration: .35s;
+  }
+  
+  .save-button:hover {
+    box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+  }
+
+  .role-dropdown{
+    height:40px;
+    width: 100px;
+    font-size:15px;
+  }
+  #roleFilter{
+    height:40px;
+    width: 100px;
+    font-size:15px;
+    margin-bottom: 10px;
+  }
+
+@media (max-width: 800px) {
+.hideOnMobile {
+  display: none;
+}
+
+.menu-button {
+  display: block; /* Ensure the menu button is displayed at this screen width */
+}
+
+.close {
+position: absolute;
+top: 15px;
+right: 15px; /* Adjusted position */
+color: red;
+font-size: 40px;
+font-weight: bold;
+transition: 0.3s;
+z-index: 2; /* Ensure it's above the modal content */
+}
+
+.close:hover,
+.close:focus {
+color: #bbb;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+/* CSS for layout */
+.container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.booking {
+width: 30%; /* Adjust as needed */
+margin-bottom: 20px;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+/* css for status filter*/
+.statusFilter {
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  z-index: 2;
+}
+/* css for table*/
+.booking-table {
+border-collapse: collapse;
+width: 100%; /* Adjust width as needed */
+}
+.booking-table th,
+.booking-table td {
+padding: 10px;
+border: 1px solid #ddd;
+text-align: left; /* Adjust alignment as needed */
+white-space: nowrap;
+}
+.booking-table th:last-chil
+
+.sidebar {
+  display: none; /* Hide the sidebar by default on smaller screens */
+}
+.modal-content{
+  width: 80%;
+}
+
+}
+
+@media(max-width: 400px){
+.sidebar{
+  width: 105%;
+}
+
+.logoB{
+  display: none;
+  margin-right: auto;
+}
+.logo {
+  display: flex;
+}
+.searchFilter{
+top: 10%;
+}
+.booking-container{
+margin-top: 10%;
+}
+h2{
+font-weight: bold;
+text-align: center;
+margin:15px 0px;
+}
+.user-info {
+font-size: 13px;
+}
+}
+

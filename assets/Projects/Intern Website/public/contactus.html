@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="./CSS/booking.css">
+  <link rel="stylesheet" href="./CSS/qr.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <style>
+    .accordion {
+      border: 1px solid #E2E8F0;
+      border-radius: 0.5rem;
+    }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background-color: #F7FAFC;
+    }
+
+    .accordion-content {
+      transition: max-height 0.3s ease;
+    }
+
+    .accordion-content.hidden {
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    /* New styles to move the toggle symbol to the right end */
+    .accordion-toggle {
+      margin-left: auto;
+      /* Push the symbol to the right */
+    }
+    .input-field {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+    color: black;
+  }
+
+  .input-field:focus {
+    border-color: #ff69b4; /* pink */
+  }
+  .body{
+    background-color: #F4E0F8;
+  }
+  .span{
+    background-color: #F1EDE0;
+  }
+  .input-message {
+    width: 100%;
+    height: 90px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+    color: black !important;
+  }
+
+  .input-message:focus {
+    border-color: #ff69b4; /* pink */
+  }
+  .whole-body{
+    color: white;
+    background-color: white;
+  }
+  .submit{
+    background-color: #A171B7;
+  }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="whole-body">
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960"
+            width="26">
+            <path
+              d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+          </svg></a></li>
+      <li><a href="./booking.html">Book Now</a></li>
+      <li><a href="./userprofile.html">User Profile</a></li>
+      <li><a href="./bookinghistory.html">Booking History</a></li>
+      <li><a href="./contactus.html">Contact Us</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+    <ul>
+      <li> <img src="./img/logoB.png" alt="Logo" class="logoB"></li>
+      <li> <img src="./img/logo.png" alt="Logo" class="logo"></li>
+      <li class="hideOnMobile"><a href="./booking.html">Book Now</a></li>
+      <li class="hideOnMobile"><a href="./userprofile.html">User Profile</a></li>
+      <li class="hideOnMobile"><a href="./bookinghistory.html">Booking History</a></li>
+      <li class="hideOnMobile"><a href="./contactus.html">Contact Us</a></li>
+      <li class="hideOnMobile"><a href="#" onclick="logout()">Logout</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26"
+            viewBox="0 96 960 960" width="26">
+            <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+          </svg></a></li>
+    </ul>
+  </nav>
+
+  <div class="container mx-auto py-36 flex justify-between items-center md:max-w-md">
+    <!-- Contact Details Section -->
+    <div class="text-black text-4xl font-bold ml-10">
+      <div class="mb-8">
+        <h3 class="text-3xl font-bold mb-2">Call Us:</h3>
+        <p class="text-2xl">+123 456 7890</p>
+      </div>
+      <div class="mb-8">
+        <h3 class="text-3xl font-bold mb-2">Email Us:</h3>
+        <p class="text-2xl">contact@example.com</p>
+      </div>
+      <div class="mb-8">
+        <h3 class="text-3xl font-bold mb-2">Location:</h3>
+        <p class="text-2xl">123 Main St, City, Country</p>
+      </div>
+    </div>
+</div>
+
+
+    <div class="max-w-screen-2xl rounded-lg mx-auto p-10 mb-10 flex justify-center items-center body">
+      <div class="w-full max-w-md">
+      <h2 class="text-5xl font-bold text-black mb-8 text-center">Contact Us</h2>
+      <form id="formadj" action="https://formsubmit.co/matthewabenion22@gmail.com" method="POST" class="mx-auto">
+
+        
+          <div class="flex flex-col">
+            <div class="mb-4">
+              <input type="name" id="name" name="name" placeholder="Enter your name" required 
+              class="input-field p-3.5">
+            </div>
+            <div class="mb-4">
+              <input type="email" id="email" name="email" placeholder="Enter your email" required 
+              class="input-field p-3.5">
+            </div>
+            <div class="mb-4">
+              <input type="name" id="email" name="email" placeholder="Enter your concern/subject" required 
+              class="input-field p-3.5">
+          </div>
+        <div class="flex mb-8">
+          <textarea id="message" class="input-message" placeholder="Enter your Message" rows="10" cols="80" name="message"
+            required ></textarea>
+        </div>
+        <div>
+          <input type="hidden" name="_honey" style="display:none"> <!-- Honeypot field -->
+
+          <input type="hidden" name="_captcha" value="false"> <!-- Remove captcha -->
+
+          <input type="hidden" name="_next" value="https://www.hrfairy.com/thankyou.html">
+          <!-- Custom "Thank You" page URL --><br>
+
+          <button type="submit" class="w-full bg-purple-900 text-white py-2 px-4 rounded-md hover:bg-pink-600 font-bold">Send
+            Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+
+
+  </div>
+
+  <!-- FAQs Section -->
+  <h2 class="text-5xl font-bold text-black text-center mb-8">FAQs Before Booking</h2>
+
+  <div class="container mx-auto p-4">
+    <div class="accordion w-full">
+      <!-- Accordion 1 -->
+      <button class="accordion-header w-full text-black font-semibold py-4 px-6 rounded-t cursor-pointer span">
+        <span>1. Can I book a fairy immediately?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>We kindly ask that you consider booking at least 24 hours in advance. While we do our best to accommodate
+          same-day bookings, availability of a fairy may be limited. Booking in advance ensures that we can better
+          assist you and your family, and helps avoid any last-minute stress in finding a fairy. Thank you for your
+          understanding and cooperation!</p>
+      </div>
+
+      <!-- Accordion 2 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>2. Is My Fairee open on the weekends or early mornings? Can I book a fairy at any time?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>Our dedicated Fairies are available around the clock, providing both day and night shifts, seven days a week,
+          365 days a year. Our Customer Service and Bookings Team is here to assist you from 8 am to 8 pm every day.
+          Your convenience and satisfaction are our top priorities, and we're always here to support you whenever you
+          need us.</p>
+      </div>
+
+      <!-- Accordion 3 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>3. What is the maximum hours per booking?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>Currently, our system allows you to book a session for up to 12 hours</p>
+      </div>
+
+      <!-- Accordion 4 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>4. Do you have fairies who can take care of children with special needs?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>Yes, we have fairies who are experienced in taking care of children with special needs. However, their
+          ability to cater to such requirements may vary depending on the specific level of needs involved as they are
+          not specifically trained for this.</p>
+      </div>
+
+
+
+      <div class="accordion">
+        <!-- Accordion 5 -->
+        <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+          <span>5. Are the fairies allowed to do housework chores? How about taking care of pets?</span>
+          <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+          <p>Our Fairies are happy to assist with light household chores such as cleaning, cooking, and laundry,
+            provided it does not interfere with their childcare duties. For cooking, they can handle basic tasks like
+            frying and reheating food. However, please understand that they may not be able to replicate specific dishes
+            to perfection, as individual tastes vary. </p>
+          <br>
+          <p>
+            In terms of cleaning, they can sweep, mop, and tidy up rooms and
+            messes left by their charges. They can also freshen up bathrooms after use. However, it's important to
+            manage expectations regarding the level of detail in cleaning, as they may not achieve the same standards as
+            professional cleaning companies.
+
+          </p>
+          <br>
+
+          <p>
+            At this time, our Fairies are not trained to provide care for pets. We
+            appreciate your understanding and cooperation as we strive to provide the best possible service for you and
+            your family.</p>
+        </div>
+
+        <!-- Accordion 6 -->
+        <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+          <span>6. Do you have permanent stay-in fairies?</span>
+          <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+          <p>We do not provide permanent stay-in fairies. We only offer stay-out help who can assist your household on a
+            daily basis. They are available to stay overnight occasionally and can even accompany you while traveling.
+            We appreciate your understanding and flexibility as we strive to meet your needs.</p>
+        </div>
+
+        <!-- Accordion 7 -->
+        <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+          <span>7. I have an upcoming event this weekend. Can I bring the fairy with me to the event?</span>
+          <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+          <p>Certainly! You are welcome to bring your fairy along with you to your errands and events. However, we
+            kindly request that you inform us in advance so that we can make the necessary arrangements more smoothly.
+          </p>
+        </div>
+
+        <!-- Accordion 8 -->
+        <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+          <span>8. What areas do you cover for your services?</span>
+          <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+          <p>At the moment, we provide services across Metro Manila, Laguna, Cavite, and Rizal exclusively.</p>
+        </div>
+      </div>
+
+
+      <!-- Accordion 9 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>9. What should I do if I really need a fairy but I don’t live within your service area?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>We only provide services exclusively in Metro Manila, Laguna, Cavite, and Rizal. Please reach out to us on
+          our Facebook page, and we will do our best to assist you.</p>
+      </div>
+
+      <!-- Accordion 10 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>10. How can you guarantee my kid’s safety? How reliable are your fairies?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>We understand your concerns and take several measures to ensure that our fairies are reliable and capable
+          caregivers:</p>
+        <ul>
+          <li>• All fairies undergo an initial interview to assess their qualifications. We prioritize candidates with
+            at least 3 years of experience as a nanny/yaya and those who are former OFWs, as they typically demonstrate
+            a higher level of professionalism and expertise.</li>
+          <li>• Candidates who pass the initial interview proceed to undergo psychological assessments. This helps us
+            ensure that they possess the necessary competence, mental and emotional stability, and capacity to handle
+            the demands of the job with grace under pressure.</li>
+          <li>• Only candidates who successfully complete the first two steps proceed to training, during which a
+            background check is conducted to verify their credentials and qualifications.</li>
+        </ul>
+        <br>
+        <p>Once all requirements have been met and verified, fairies are ready to begin their duties with confidence and
+          proficiency, providing your family with the exceptional care and support they deserve.
+          We maintain open communication with both our fairies and clients to address any concerns or issues that may
+          arise. Our dedicated support team is available to assist you at any time, providing peace of mind knowing that
+          your children are in safe hands.
+          By implementing these measures, we strive to guarantee the safety and reliability of our fairies, allowing you
+          to trust us with the care of your precious children. At My Fairee, we prioritize the safety and well-being of
+          your children above all else.</p>
+      </div>
+
+      <!-- Accordion 11 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>11. What are your service rates?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>We are pleased to share our current promotional rates for our fairies, as follows:</p>
+        <ul>
+          <li>• 4 hours: ₱550</li>
+          <li>• 6 hours: ₱725</li>
+          <li>• 8 hours: ₱900</li>
+          <li>• 10 hours: ₱1,100</li>
+          <li>• 12 hours: ₱1,200</li>
+        </ul>
+        <br>
+        <p>In addition, to cover transportation costs for your fairy's commute, clients will incur the following
+          charges:</p>
+        <ul>
+          <li>• ₱150 per fairy (within Metro Manila)</li>
+          <li>• ₱200 per fairy (Rizal)</li>
+          <li>• ₱250 per fairy (Laguna and Cavite)</li>
+        </ul>
+        <p>Should you wish to extend your fairy's service, the rate will be ₱150 per hour.</p>
+        <p>Please note that all our rates are inclusive of any food expenses for the fairies.</p>
+      </div>
+    </div>
+
+
+    <!-- Accordion 12 -->
+    <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+      <span>12. Do you have a subscription plan? How does it work?</span>
+      <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+      <p>Yes, we offer subscription plans designed to provide clients with greater flexibility and convenience. These
+        membership-based plans allow you to secure your preferred fairies for your scheduled needs. With our recurring
+        Subscription Plan, you'll enjoy subsequent discounts on your total amount, depending on the number of days you
+        require a fairy in a month. The rates for our subscription plans are highly customizable and are based on your
+        specific needs.</p>
+      <br>
+      <p>For example, if you require a fairy three times a week for four hours each time, we would calculate the total
+        for 12 sessions (multiplied by four weeks). This total would then receive a discount ranging from 2.5% to 5%.
+        Additionally, if you choose to prepay for the entire month, an extra 2.5% to 5% discount will be applied.</p>
+      <br>
+      <p>Our subscription plans offer great flexibility, allowing you to tailor your schedule to suit your family's
+        needs. Here are a few examples of how customizable our plans can be:</p>
+      <ol>
+        <li>• You can schedule eight hours on Mondays, Wednesdays, and Fridays, four hours on Tuesdays and Thursdays,
+          and twelve hours on Saturdays.</li>
+        <li>• Alternatively, you can opt for a heavier schedule every other week, with two sessions per week for four
+          hours in the first and third weeks, and three sessions per week for twelve hours in the second and fourth
+          weeks.</li>
+        <li>• You can also keep it simple by blocking off twelve sessions for the month and providing us with your
+          schedule for the upcoming week every Friday.</li>
+      </ol>
+      <br>
+      <p>The main advantage of our Subscription Plan is the ability to reserve fairies for the days you need them. With
+        advanced scheduling, we can better accommodate your requests and ensure that your preferred fairies are
+        available to meet your needs. On-demand bookings, on the other hand, are subject to availability.</p>
+    </div>
+  </div>
+
+  <br><br>
+  <!-- FAQs Section -->
+  <h2 class="text-5xl font-bold text-black text-center mb-8">Booking FAQs </h2>
+
+  <div class="container mx-auto p-4">
+    <div class="accordion">
+      <!-- Accordion 1 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>1. What if I need to change my booking?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>We kindly ask that if you need to reschedule or modify your booking, please do so with at least 12-24 hours
+          notice before the scheduled time. This will allow us to coordinate with the necessary arrangements and ensure
+          a smoother process for both parties involved.</p>
+      </div>
+
+      <!-- Accordion 2 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>2. What should I do if I don’t like my fairy?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>If you find that the fairy assigned to you may not be the best fit for your needs, please don't hesitate to
+          reach out to us via our group chat. We are here to assist you and ensure your satisfaction with our services.
+          We’d be more than happy to assist you in finding a fairy who better suits your preferences and requirements.
+        </p>
+      </div>
+
+      <!-- Accordion 3 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>3. Can I extend my booking time during a session?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>We sincerely appreciate that you value your time with the fairy during your scheduled session, so please
+          don't hesitate to inform us. Additionally, we kindly ask that you check with the fairy to ensure they do not
+          have a following session scheduled. Your cooperation in communicating any extensions needed is greatly
+          appreciated, as it helps us better accommodate your needs and ensures a seamless experience for everyone
+          involved.</p>
+      </div>
+
+      <!-- Accordion 4 -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>4. What should I do if I have some issues during the booking like a fairy not showing up?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>In the event of any issues, rest assured that we are committed to resolving the matter promptly. Particularly
+          if the fairy fails to show up on your scheduled booking, kindly inform us via our group chat so that we can
+          issue a refund within 24 hours of the occurrence. Your satisfaction and peace of mind are of utmost importance
+          to us, and we appreciate your trust in our services.</p>
+      </div>
+
+      <!-- Accordion for Payment FAQs -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>5. How can I pay for a booking?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>We would appreciate it if you can settle payment at your earliest so we can submit to Finance and confirm the
+          booking/s with the Fairies. You may transfer via the channels below:</p><br>
+        <ol>
+          <li><strong>Unionbank (for UnionBank account holders) - PREFERRED</strong><br>Account Number: 0005 6003 8331
+          </li><br>
+          <li><strong>Gcash</strong><br>CA**O FE***E P.<br>09171588278</li><br>
+        </ol>
+        <p>Kindly send us a screenshot of the payment transaction.</p>
+      </div>
+
+
+      <!-- Accordion for Cancellation Policy -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>6. Can I cancel a booking?</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <p>Should you need to cancel the booking/s, kindly note that we need a lead time of 12 hours (within office
+          hours from 8am to 8pm) prior to the scheduled booking. Last minute cancellations would be subject to a
+          cancellation fee of P250 to compensate the Fairy for travel costs etc.</p>
+        <br>
+        <h3>FOR ON DEMAND BOOKINGS</h3>
+        <p>• For cancellations due to client requests, we would refund the full amount (if done within the requested
+          lead time of 6 hours). Otherwise, we will deduct the cancellation fee from the amount previously paid.</p><br>
+        <h3>FOR BULK BOOKINGS</h3>
+        <ul>
+          <li>• Full refund - 2 days before scheduled bookings</li><br>
+          <li>• Partial refund (80% refund of unconsumed bookings without discount) - 50% of service consumed</li><br>
+          <li>• Partial refund (70% refund of unconsumed bookings without discount) - 70-80% of service consumed</li><br>
+        </ul>
+        <h3>FOR SUBSCRIPTION BOOKINGS</h3>
+        <ul>
+          <li>• Full refund - 2 days before scheduled bookings</li><br>
+          <li>• Partial refund (Amount paid less 2 days worth of cancellation fees amounting to P500) - canceled on the
+            day itself to 2 days before booking</li><br>
+          <li>• Partial refund (80% refund of unconsumed bookings without discount) - 50% of service consumed</li><br>
+          <li>• Partial refund (75% refund of unconsumed bookings without discount) - 60-70% of service consumed</li><br>
+          <li>• Partial refund (50% refund of unconsumed bookings without discount) - 80% of service consumed</li><br>
+        </ul>
+      </div>
+    </div>
+    <br><br>
+    <br><br>
+
+    <!-- FAQs Section -->
+    <h2 class="text-5xl font-bold text-black text-center mb-8">Reminders Before & During the Booking</h2>
+    <div class="accordion">
+      <!-- Accordion for Reminders before and during the booking -->
+      <button class="accordion-header w-full span text-black font-semibold py-4 px-6 rounded-t cursor-pointer">
+        <span>Reminders before and during the booking:</span>
+        <svg class="accordion-toggle w-6 h-6 transform transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="accordion-content hidden px-6 py-4 bg-white rounded-b text-black"> <!-- Changed background color -->
+        <ol>
+          <li><strong>• Hygiene:</strong> Fairies are required to be clean before their shift. Clients are requested to
+            provide bathroom access for their showering or changing (depending on what you are comfortable with). Rest
+            assured that Fairies bring their own toiletries and clothes.</li><br>
+          <li><strong>• Meals and Snacks:</strong> Fairies typically bring their own meals, snacks, and cutlery. If
+            clients wish to share a meal with them, advance notice is appreciated. That way they won't bring their
+            packed meals. Clients are also encouraged to allow Fairies to refill their water bottles from the client's
+            water supply.</li><br>
+          <li><strong>• Tipping:</strong> Tipping or gift-giving is not obligatory, but clients are welcome to do so if
+            they are highly satisfied with the Fairies' service. Tips and gifts go directly to the Fairies.</li><br>
+          <li><strong>• No Phone Policy:</strong> Fairies are not allowed to use their phones while on duty. Clients are
+            encouraged to report any violations of this policy.</li><br>
+          <li><strong>• Maintaining Professional Distance:</strong> Clients are requested to maintain a professional
+            distance with Fairies, as they are independent contractors. In line with this, please avoid sharing your
+            personal information (phone number, Facebook account details) with the Fairy and vice versa. This is to
+            prevent over familiarity between Fairies and clients.</li><br>
+          <li><strong>• Transactions through the Office:</strong> All payments and bookings should be conducted strictly
+            through the office. This is to avoid confusion and conflicts. If there are separate transactions with
+            Fairies, the office cannot assist in case of concerns or issues.</li><br>
+          <li><strong>• Mask Policy:</strong> Requiring the use of masks throughout the duty is a good safety measure,
+            with exceptions for eating or drinking. Clients are encouraged to report any violations.</li><br>
+          <li><strong>• Supervised interaction:</strong> Since the Fairies are not stay-in help, we would suggest that
+            all services would be supervised by yourself or a trusted family member. This is to ensure that your child
+            does not get scared with an unfamiliar face.</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+  <script src="./JS/contactus.js"></script> 
+  
+<footer class="footer-distributed">
+
+  <div class="footer-left">     
+    <p class="footer-company-about">
+      <span>About the Company</span>
+      My Fairee is an on-call nanny service to provide exceptional childcare experiences and uplift Filipino mothers. Our commitment is to ensure your child's safety and happiness, allowing you to focus on your priorities with ease. 
+    </p>
+    <div class="footer-icons">
+      <a href="https://www.facebook.com/myfairee"><i class="fa fa-facebook"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-center">
+    <p class="footer-links">
+      <a href="./booking.html">Book Now</a>
+      <a href="./userprofile.html">User Profile</a>
+      <a href="./bookinghistory.html">Booking History</a>		
+      <a href="./contactus.html">Contact Us</a>	
+    </p>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+639171588278</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p>myfaireeph@gmail.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+    <div id="newsletter-social">  
+      <div id="newsletter">
+      <h2 class="center">Be Updated!</h2>
+      <p class="deals">Be the first to hear about our latest services and special deals.</p>
+      <input type="text" placeholder="Enter email address">
+      <input type="submit" value="Subscribe">
+  </div>  
+</div>  
+
+  </div>
+</footer>
+
+</body>
+
+</html>

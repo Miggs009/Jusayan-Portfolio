@@ -1,0 +1,446 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    zoom: 80%;
+}
+.bookmenu {
+    background-color: #C5BEE7;
+    text-align: left;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 80px;
+    padding-right: 50px;
+
+}
+.current-page {
+  background-color: #f0f0f0;
+  border-radius: 50px;
+}
+#menuIcon {
+    width: 40px;
+    height: 40px;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 80px; /* Adjust this value according to your design */
+    right: 0;
+    font-size: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 999;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
+
+
+  .btn-success {
+    background-color: #28a745; /* Green color */
+    border-color: #28a745;
+}
+
+.dark-green-btn {
+  background-color: #006400; /* Dark green color */
+  border-color: #006400; /* Dark green color */
+}
+
+.dark-green-btn:hover {
+  background-color: #023c02; /* Darker shade of green on hover */
+  border-color: #023c02; /* Darker shade of green on hover */
+}
+
+.moveableButton {
+  width: 50px;
+  height: 50px;
+}
+
+    /* Style for the pseudo-modal */
+    .pseudo-modal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        z-index: 1000; /* Ensure the pseudo-modal appears above other content */
+    }
+
+
+
+    nav{
+      background-color: #CCCCFF;
+      height:70px;
+    }
+    nav ul{
+      width: 100%;
+      list-style: none;
+      display: flex;
+      padding-top:10px;
+      padding-right:20px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    nav img{
+     margin-top:-3px;
+     width:200px;
+     height:50px;
+    }
+    nav li{
+      height: 50px;
+    }
+    nav a{
+      font-size: 20px;
+      height: 100%;
+      padding: 0 30px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color: black;
+    }
+    nav a:hover{
+      background-color: #f0f0f0;
+      border-radius: 50px;
+    }
+    nav li:first-child{
+      margin-right: auto;
+    }
+    .sidebar{
+      position: fixed;
+      top: 0; 
+      right: 0;
+      height: 100vh;
+      width: 250px;
+      background-color: rgba(215, 210, 210, 0.15);
+      backdrop-filter: blur(12px);
+      box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      z-index:9999;
+    }
+    .sidebar li{
+      width: 100%;
+    }
+    .sidebar a{
+      width: 100%;
+    }
+    .sidebar a:hover{
+      background:#C5BEE7;
+      border-radius: 0px;
+    }
+    .menu-button{
+      display: none;
+    }
+    .logoB{
+      display: block;
+      width: 220px;
+      float: left;
+    }
+    .logo{
+      display: none;
+      max-width: 50px;
+      max-height: 80px;
+      margin-right: 280px;
+    }
+    @media(max-width: 829px){
+      .hideOnMobile{
+        display: none;
+      }
+      .menu-button{
+        display: block;
+      }
+      #booktabnavigation{
+          height: 50px;
+          width: 100%;
+      }
+      .booktabnavigation{
+          height: 10px;
+          display:flex;
+      }
+      .booktabnavigation .booktab{
+          font-size: 20px;
+          height: 60px; 
+          padding: 16px 10px;
+      }
+  
+    }
+    @media(max-width: 400px){
+      .sidebar{
+        width: 100%;
+      }
+      #booktabnavigation{
+  
+          height: 50px;
+          width: 100%;
+  
+      }
+      .booktabnavigation{height: 10px; display:flex;}
+      .booktabnavigation .booktab{
+          font-size: 20px;
+          height: 60px;
+          padding: 16px 10px;
+      }
+      .logoB{
+        display: none;
+        margin-right: auto;
+    }
+    .logo {
+        display: flex;
+      }
+  
+    }
+    /* Footer CSS */
+.content {
+    min-height: calc(100vh - 100px);
+}
+.footer-distributed{
+  position: relative;
+  bottom: 0;
+  font-family: Open Sans;
+background:#CCCCFF ;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+width: 100%;
+text-align: left;
+font: bold 16px sans-serif;
+padding: 30px 50px;
+  margin-top:30px;
+  margin-bottom: 0px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+display: inline-block;
+vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+color:  #ffffff;
+font: normal 36px 'Open Sans', cursive;
+margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+color:  #ffffff;
+margin: 20px 0 12px;
+padding: 0;
+}
+
+.footer-distributed .footer-links a{
+display:inline-block;
+line-height: 1.8;
+  font-weight:400;
+text-decoration: none;
+color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+color:  white;
+font-size: 14px;
+font-weight: normal;
+margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+width: 35%;
+}
+
+.footer-distributed .footer-center i{
+background-color:  #2b2d2e;
+color: #ffffff;
+font-size: 25px;
+width: 38px;
+height: 38px;
+border-radius: 50%;
+text-align: center;
+line-height: 42px;
+margin: 10px 15px;
+vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+font-size: 17px;
+line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+display: inline-block;
+color: #2d3133;
+  font-weight:400;
+vertical-align: middle;
+margin:0;
+}
+
+.footer-distributed .footer-center p span{
+display:block;
+font-weight: normal;
+font-size:14px;
+line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+color:  #5D0177;
+text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-distributed .footer-links a:after {
+content: "|";
+font-weight:300;
+font-size: 20px;
+margin-left: 5px;
+color: #fff;
+display: inline-block;
+padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+line-height: 20px;
+color:  rgb(58, 56, 56);
+font-size: 13px;
+font-weight: normal;
+margin: 0;
+  width: 70%;
+}
+
+.footer-distributed .footer-company-about span{
+display: block;
+color:  #5D0177;
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+.center{
+  color: #5D0177;
+}
+.footer-distributed .footer-icons{
+margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+display: inline-block;
+width: 35px;
+height: 35px;
+cursor: pointer;
+background-color:  #2d3133;
+border-radius: 2px;
+font-size: 20px;
+color: #ffffff;
+text-align: center;
+line-height: 35px;
+margin-right: 3px;
+margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+
+.footer-distributed{
+  font: bold 14px sans-serif;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.footer-distributed .footer-center i{
+  margin-left: 0;
+}
+  .footer-links{
+      width:70%;
+  }
+
+}
+
+#newsletter-social {
+  margin: 0 auto;
+  text-align: left;
+}
+    
+/* Newsletter Styling */ 
+#newsletter {
+  text-align: left;
+  display: inline-block;
+}
+
+p.deals {
+  font-size: 13px;
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-weight: 500; 
+  text-align: center;
+  margin:20px 0px 10px 0px; 
+  color:rgb(49, 48, 48);
+}
+
+input[type=text] {
+    padding: 15px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px #D9D6D6;
+    background-color: #F2F2F2;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 500;
+}
+input[type=button], input[type=submit], input[type=reset] {
+
+    background-color: #0677FF;
+    border: 2px;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    margin: 20px 0px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 900;
+}

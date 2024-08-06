@@ -1,0 +1,624 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    zoom: 80%;
+    height: 100%;
+}
+#menuIcon {
+    width: 40px;
+    height: 40px;
+}
+.current-page {
+  background-color: #f0f0f0;
+  border-radius: 50px;
+}
+.container-fluid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 50px;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 80px; /* Adjust this value according to your design */
+    right: 0;
+    font-size: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 999;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
+.bookmenu {
+    background-color: #C5BEE7;
+    text-align: left;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 80px;
+    padding-right: 50px;
+}
+.dateheader {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  color: #492166;
+}
+.container-fluid h2{
+  color: #492166;
+}
+/* CSS for modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9); /* Transparent black background */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%; /* Set width for the modal content */
+  height: auto; /* Allow modal to grow vertically */
+}
+
+/* Close button styles */
+.close {
+    position: absolute;
+    top: -9px !important;
+    right: 3px !important;
+    color: red !important;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 1 !important;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    margin: 5% auto;
+    padding: 10px;
+    max-width: 90%; /* Adjust as needed */
+  }
+}
+
+.modalHeader{
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+.bookingDetailsContent{
+  font-size: 20px;
+  padding: 10px;
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #d4d4d4;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.booking-column {
+  width: 100%; /* Set each column to occupy 100% width */
+  box-sizing: border-box;
+}
+
+.booking {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+/* CSS Styles */
+.container-fluid {
+  position: relative;
+  padding-top: 80px; /* Adjust as needed */
+}
+
+/* Style for fast travel buttons */
+.fast-travel-buttons {
+  position: fixed;
+  margin-top: 5%;
+  top: 5%; /* Adjust the vertical position as needed */
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 999; /* Ensure buttons are on top of other content */
+}
+
+/* Style for each button */
+.fast-travel-buttons button {
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Style for Pending Bookings button */
+.PB {
+  background-color: #FFC107; /* Yellow color for pending bookings */
+  color: #fff; /* White text */
+}
+
+.PB:hover {
+  background-color: #FFD54F; /* Lighter shade of yellow on hover */
+}
+
+/* Style for Active Bookings button */
+.AB {
+  background-color: #4CAF50; /* Green color for active bookings */
+  color: #fff; /* White text */
+}
+
+.AB:hover {
+  background-color: #81C784; /* Lighter shade of green on hover */
+}
+
+/* Style for Completed Bookings button */
+.CB {
+  background-color: #2196F3; /* Blue color for completed bookings */
+  color: #fff; /* White text */
+}
+
+.CB:hover {
+  background-color: #64B5F6; /* Lighter shade of blue on hover */
+}
+
+
+
+.bookmenu {
+  position: relative; /* Set position to relative */
+  z-index: 1000; /* Ensure the book menu is above the fast-travel buttons */
+}
+
+
+.accept-btn,
+.cancel-btn,
+.details-btn,
+.view-nanny-pay-btn {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.accept-btn {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+}
+.cancel-btn{
+    background-color: #e82d2d; /* Green color */
+    color: white;
+}
+.details-btn {
+    background-color: #76769a; /* Blue color */
+    color: white;
+}
+
+.view-nanny-pay-btn{
+    background-color: #510246; /* Blue color */
+    color: white;
+}
+
+.accept-btn:hover,
+.details-btn:hover {
+    opacity: 0.8;
+}
+
+.accept-btn.dark-text,
+.details-btn.dark-text {
+    color: white; /* Change text color to white for dark background */
+}
+nav{
+  background-color: #CCCCFF;
+  height:70px;
+}
+nav ul{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  padding-top:10px;
+  padding-right:20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav img{
+ margin-top:-3px;
+ width:200px;
+ height:50px;
+}
+nav li{
+  height: 50px;
+}
+nav a{
+  font-size: 20px;
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+nav a:hover{
+  background-color: #f0f0f0;
+  border-radius: 50px;
+}
+nav li:first-child{
+  margin-right: auto;
+}
+.sidebar{
+  position: fixed;
+  top: 0; 
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(215, 210, 210, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index:9999;
+}
+.sidebar li{
+  width: 100%;
+}
+.sidebar a{
+  width: 100%;
+}
+.sidebar a:hover{
+  background:#C5BEE7;
+  border-radius: 0px;
+}
+.logoB{
+  display: block;
+  width: 220px;
+  float: left;
+}
+.logo{
+  display: none;
+  max-width: 50px;
+  max-height: 80px;
+  margin-right: 280px;
+}
+@media screen and (max-width: 1160px) {
+  .fast-travel-buttons {
+      position: fixed;
+      top: 20%; /* Position at the middle vertically */
+      right: 10px; /* Adjust the right spacing */
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+  }
+
+  .bookmenu {
+      padding-right: 150px; /* Adjust as needed */
+  }
+}
+/* Media Query for Responsive Layout */
+@media screen and (max-width: 768px) {
+  .fast-travel-buttons {
+      position: fixed;
+      top: 20%; /* Position at the middle vertically */
+      right: 10px; /* Adjust the right spacing */
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+  }
+
+  .bookmenu {
+      padding-right: 150px; /* Adjust as needed */
+  }
+}
+
+
+.menu-button{
+  display: none;
+}
+@media (max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  .menu-button {
+    display: block; /* Ensure the menu button is displayed at this screen width */
+  }
+
+  .sidebar {
+    display: none; /* Hide the sidebar by default on smaller screens */
+  }
+  .modal-content{
+    width: 80%;
+  }
+  
+}
+
+@media(max-width: 400px){
+  .sidebar{
+    width: 100%;
+  }
+  .logoB{
+    display: none;
+    margin-right: auto;
+}
+.logo {
+    display: flex;
+  }
+}
+/* Footer CSS */
+.content {
+  min-height: calc(100vh - 150px);
+}
+.footer-distributed{
+  position: relative;
+  bottom: 0;
+  font-family: Open Sans;
+background:#CCCCFF ;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+width: 100%;
+text-align: left;
+font: bold 16px sans-serif;
+padding: 30px 50px;
+  margin-top:30px;
+  margin-bottom: 0px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+display: inline-block;
+vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+color:  #ffffff;
+font: normal 36px 'Open Sans', cursive;
+margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+color:  #ffffff;
+margin: 20px 0 12px;
+padding: 0;
+}
+
+.footer-distributed .footer-links a{
+display:inline-block;
+line-height: 1.8;
+  font-weight:400;
+text-decoration: none;
+color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+color:  white;
+font-size: 14px;
+font-weight: normal;
+margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+width: 35%;
+}
+
+.footer-distributed .footer-center i{
+background-color:  #2b2d2e;
+color: #ffffff;
+font-size: 25px;
+width: 38px;
+height: 38px;
+border-radius: 50%;
+text-align: center;
+line-height: 42px;
+margin: 10px 15px;
+vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+font-size: 17px;
+line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+display: inline-block;
+color: #2d3133;
+  font-weight:400;
+vertical-align: middle;
+margin:0;
+}
+
+.footer-distributed .footer-center p span{
+display:block;
+font-weight: normal;
+font-size:14px;
+line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+color:  #5D0177;
+text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-distributed .footer-links a:after {
+content: "|";
+font-weight:300;
+font-size: 20px;
+margin-left: 5px;
+color: #fff;
+display: inline-block;
+padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+line-height: 20px;
+color:  rgb(58, 56, 56);
+font-size: 13px;
+font-weight: normal;
+margin: 0;
+  width: 70%;
+}
+
+.footer-distributed .footer-company-about span{
+display: block;
+color:  #5D0177;
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+.center{
+  color: #5D0177;
+}
+.footer-distributed .footer-icons{
+margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+display: inline-block;
+width: 35px;
+height: 35px;
+cursor: pointer;
+background-color:  #2d3133;
+border-radius: 2px;
+font-size: 20px;
+color: #ffffff;
+text-align: center;
+line-height: 35px;
+margin-right: 3px;
+margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+
+.footer-distributed{
+  font: bold 14px sans-serif;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.footer-distributed .footer-center i{
+  margin-left: 0;
+}
+  .footer-links{
+      width:70%;
+  }
+
+}
+
+#newsletter-social {
+  margin: 0 auto;
+  text-align: left;
+}
+    
+/* Newsletter Styling */ 
+#newsletter {
+  text-align: left;
+  display: inline-block;
+}
+
+p.deals {
+  font-size: 13px;
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-weight: 500; 
+  text-align: center;
+  margin:20px 0px 10px 0px; 
+  color:rgb(49, 48, 48);
+}
+
+input[type=text] {
+    padding: 15px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px #D9D6D6;
+    background-color: #F2F2F2;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 500;
+}
+input[type=button], input[type=submit], input[type=reset] {
+
+    background-color: #0677FF;
+    border: 2px;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    margin: 20px 0px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 900;
+}

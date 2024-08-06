@@ -1,0 +1,11 @@
+C:\Users\pinna\source\repos\Act 4\Act 4\obj\Debug\Act 4.csproj.AssemblyReference.cache
+C:\Users\pinna\source\repos\Act 4\Act 4\obj\Debug\Act 4.csproj.SuggestedBindingRedirects.cache
+C:\Users\pinna\source\repos\Act 4\Act 4\obj\Debug\Act_4.Form1.resources
+C:\Users\pinna\source\repos\Act 4\Act 4\obj\Debug\Act_4.Properties.Resources.resources
+C:\Users\pinna\source\repos\Act 4\Act 4\obj\Debug\Act 4.csproj.GenerateResource.cache
+C:\Users\pinna\source\repos\Act 4\Act 4\obj\Debug\Act 4.csproj.CoreCompileInputs.cache
+C:\Users\pinna\source\repos\Act 4\Act 4\bin\Debug\Act 4.exe.config
+C:\Users\pinna\source\repos\Act 4\Act 4\bin\Debug\Act 4.exe
+C:\Users\pinna\source\repos\Act 4\Act 4\bin\Debug\Act 4.pdb
+C:\Users\pinna\source\repos\Act 4\Act 4\obj\Debug\Act 4.exe
+C:\Users\pinna\source\repos\Act 4\Act 4\obj\Debug\Act 4.pdb

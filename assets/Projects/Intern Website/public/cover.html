@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover Page</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #ccccff;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .logo-container {
+        text-align: center;
+    }
+
+    #logo {
+    max-width: 100%; /* Ensure logo image doesn't exceed its container */
+    height: auto; /* Maintain aspect ratio */
+    image-rendering: -webkit-optimize-contrast; /* Improve image rendering */
+    -ms-interpolation-mode: bicubic; /* Improve image rendering */
+    animation: bounce 1s infinite alternate; /* Animation properties */
+}
+
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-30px); /* Adjust the bounce height as needed */
+        }
+    }
+
+    /* Media Queries for responsiveness */
+    @media only screen and (max-width: 768px) {
+        .logo-container {
+            max-width: 90%; /* Adjust the maximum width of the logo container */
+        }
+        #logo {
+            max-width: 100%; /* Ensure logo image doesn't exceed its container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .logo-container {
+            max-width: 80%; /* Adjust the maximum width of the logo container */
+        }
+
+        #logo {
+            max-width: 100%; /* Ensure logo image doesn't exceed its container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="logo-container">
+        <!-- Insert your logo image here -->
+        <img id="logo" src="./img/cover2.svg" alt="Cover">
+    </div>
+
+    <script>
+        // Redirect to auth.html after 10 seconds
+        setTimeout(function() {
+            window.location.href = "auth.html";
+        }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
+</body>
+</html>

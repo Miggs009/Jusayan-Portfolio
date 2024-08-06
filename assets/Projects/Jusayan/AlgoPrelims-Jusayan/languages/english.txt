@@ -1,0 +1,14 @@
+Welcome
+Name
+Address
+Contact Number
+Birthday
+Gender
+Civil Status
+Male
+Female
+Single
+Married
+Widow
+Theme
+Language

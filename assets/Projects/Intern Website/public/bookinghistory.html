@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+
+
+    <link rel="stylesheet" href="./CSS/qr.css">
+    <link rel="stylesheet" href="./CSS/uprofile.css">
+
+    <style>
+        .modal-backdrop {
+            display: none;
+        }
+    </style>
+    <script>
+        // Function to reload the page after 5 minutes
+        function reloadPage() {
+            location.reload(); // Reload the page
+        }
+        
+        // Schedule the page reload after 3 minutes (180000 milliseconds)
+        setTimeout(reloadPage, 180000); // 3 minutes = 180000 milliseconds
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul class="sidebar">
+          <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+          <li><a href="./booking.html">Book Now</a></li>
+          <li><a href="./userprofile.html">User Profile</a></li>
+          <li><a href="./bookinghistory.html">Booking History</a></li>
+          <li><a href="./contactus.html">Contact Us</a></li>
+          <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+        <ul>
+            <li> <img src="./img/logoB.png" alt="Logo" class="logoB"></li>
+            <li> <img src="./img/logo.png" alt="Logo" class="logo"></li>
+          <li class="hideOnMobile"><a href="./booking.html">Book Now</a></li>
+          <li class="hideOnMobile"><a href="./userprofile.html">User Profile</a></li>
+          <li class="hideOnMobile"><a href="./bookinghistory.html">Booking History</a></li>
+          <li class="hideOnMobile"><a href="./contactus.html">Contact Us</a></li>
+          <li class="hideOnMobile"><a href="#" onclick="logout()">Logout</a></li>
+          <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+        </ul>
+      </nav>
+
+   
+
+
+
+    <!-- Booking display -->
+    <div class="container-fluid mt-5 max-h-screen overflow-y-auto content">
+        <div>
+            <label for="filterStatus">Filter by Status:</label>
+            <select id="filterStatus">
+                <option value="all">All</option>
+                <option value="Under Review">Under Review</option>
+                <option value="Canceled">Canceled</option>
+                <option value="For Payment">For Payment</option>
+                <option value="Paid">Paid</option>
+                <option value="Completed">Completed</option>
+                <option value="Assigned">Assigned Nannies</option>
+                <option value="Accepted">Accepted Nannies</option>
+            </select>
+        </div>
+        <table class="table table-bordered">
+            <tbody id="bookingData">
+                <!-- Data will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="editBookingModal" tabindex="-1" aria-labelledby="editBookingModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editBookingModalLabel">Edit Booking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editBookingForm">
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="editDate">
+
+                            <label for="serviceType" class="form-label">Service Type</label>
+                            <input type="text" class="form-control" id="editServiceType">
+
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="editLocation">
+
+                            <label for="startTime" class="form-label">Start Time</label>
+                            <input type="time" class="form-control" id="editStartTime">
+
+                            <label for="editDuration" class="form-label">Duration (hours)</label>
+                            <select class="form-select" id="editDuration">
+                                <option value="4">4</option>
+                                <option value="6">6</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="12">12</option>
+                            </select>
+
+                            <label for="editDurationPrice" class="form-label">Service Rate</label>
+                            <input type="number" class="form-control" id="editDurationPrice">
+
+                            <label for="editTransportationFee" class="form-label">Transportation Fee</label>
+                            <input type="number" class="form-control" id="editTransportationFee">
+
+                            <label for="editTotalPrice" class="form-label">Total Price</label>
+                            <input type="number" class="form-control" id="editTotalPrice">
+                        </div>
+
+
+                        <!-- Add more fields as needed -->
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Cancel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to cancel this booking?
+                    You can't cancel the booking if 12hrs have past on the booking.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Guidelines Modal -->
+    <div class="modal fade" id="paymentGuidelinesModal" tabindex="-1" aria-labelledby="paymentGuidelinesModalLabel"
+        aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentGuidelinesModalLabel">Payment Guidelines</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Please upload proof of payment to proceed with the Booking</p>
+                    <p>By clicking on "Payment Upload" Button</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!-- Invalid payment Modal -->
+      <div class="modal fade" id="invalidPaymentModal" tabindex="-1" aria-labelledby="invalidPaymentModalLabel"
+      aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="invalidPaymentModalLabel">Invalid Payment</h5>
+              </div>
+              <div class="modal-body">
+                  <p>Please upload a clear proof of payment. Ensure the image is not blurred and all details are easily readable. Thank you!
+                </p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+    <!-- Upload Image Modal -->
+    <div class="modal fade" id="uploadImageModal" tabindex="-1" aria-labelledby="uploadImageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadImageModalLabel">Upload Payment Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadImageForm">
+                        <div class="mb-3">
+                            <label for="imageFile" class="form-label">Select Image</label>
+                            <input class="form-control" type="file" id="imageFile" accept="image/*">
+                        </div>
+                        <span id="fileNameDisplay"></span>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img id="moveableButton" src="./img/chat.png" alt="Chat" onclick="redirectToPage()"
+        style="position: fixed; bottom: 20px; right: 20px; cursor: pointer; width: 70px; height: 70px; border-radius: 50%; border: 4px solid #ccccff; z-index: 99999;">
+     <!-- Show mode of payment -->    
+        <div id="modal" class="modal">
+            <div class="modal-content modeofpaymentModal">
+                <span id="close-modal" class="close">&times;</span>
+                <h2 class="payheader">Mode of Payment</h2>
+                <div class="tab-container servicecontainer">
+                <div class="qr-option" >
+                    <label>
+                    GCASH
+                    </label>
+                    <img src="./img/GCASH.png">
+                    <h5>CA*O FE**E P.<br>
+                    09171588278</h5>
+                </div>      
+                <div class="qr-option">
+                    <label>
+                        BANK
+                    </label>
+                    <img  src="./img/Union_Bank.png">
+                    <h5>Union Bank<br>0005 6003 8331</h5>
+                </div>
+            </div>
+            <button type="button" class="doneBtn" id="doneBtn">Done</button>
+            </div>
+        </div>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-storage-compat.js"></script>
+    <script src="./JS/bookinghistory.js"></script>
+    
+<footer class="footer-distributed">
+
+    <div class="footer-left">     
+      <p class="footer-company-about">
+        <span>About the Company</span>
+        My Fairee is an on-call nanny service to provide exceptional childcare experiences and uplift Filipino mothers. Our commitment is to ensure your child's safety and happiness, allowing you to focus on your priorities with ease. 
+      </p>
+      <div class="footer-icons">
+        <a href="https://www.facebook.com/myfairee"><i class="fa fa-facebook"></i></a>
+      </div>
+    </div>
+  
+    <div class="footer-center">
+      <p class="footer-links">
+        <a href="./booking.html">Book Now</a>
+        <a href="./userprofile.html">User Profile</a>
+        <a href="./bookinghistory.html">Booking History</a>		
+        <a href="./contactus.html">Contact Us</a>	
+      </p>
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>+639171588278</p>
+      </div>
+  
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p>myfaireeph@gmail.com</p>
+      </div>
+  
+    </div>
+  
+    <div class="footer-right">
+      <div id="newsletter-social">  
+        <div id="newsletter">
+        <h2 class="center">Be Updated!</h2>
+        <p class="deals">Be the first to hear about our latest services and special deals.</p>
+        <input type="text" placeholder="Enter email address">
+        <input type="submit" value="Subscribe">
+    </div>  
+  </div>  
+  
+    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+/* Resetting default margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Styling for the body */
+body {
+    /* Background image */
+    background: url(../img/BgLogin.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 60px; /* Positioning the background */
+    overflow: hidden; /* Hiding overflow */
+    margin: 0; /* Reset default body margin */
+}
+
+/* Styling for the wrapper */
+.wrapper {
+    /* Centering content vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Minimum height to cover the viewport */
+    /* Semi-transparent background */
+    background: rgba(39, 39, 39, 0.4);
+}
+
+/* Styling for the navigation bar */
+.nav {
+    position: fixed; /* Fixed positioning */
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    padding: 5px 20px;
+    background: #CCCCFF; /* Background color */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1; /* Ensuring it's above other elements */
+}
+
+/* Styling for the logo */
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+/* Styling for navigation menu */
+.nav-menu ul {
+    display: flex;
+}
+
+.nav-menu ul li {
+    list-style-type: none;
+}
+
+.nav-menu ul li .link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+    padding-bottom: 15px;
+    margin: 0 25px;
+}
+
+/* Styling for active link and link hover */
+.link:hover,
+.active {
+    border-bottom: 2px solid #fff;
+}
+
+/* Styling for the container */
+.Container {
+    width: 90%; /* Adjusted width to fit smaller screens */
+    max-width: 400px; /* Added max-width for larger screens */
+    height: auto; /* Allow height to adjust based on content */
+    padding: 28px;
+    margin: 28px auto; /* Centering the container horizontally */
+    border-radius: 20px;
+    background: rgba(47, 11, 55, 0.77);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+    border: 1px solid rgba(47, 11, 55, 0.42);
+}
+
+/* Styling for the heading */
+h1 {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 20px;
+    border-bottom: 2px solid silver;
+}
+
+/* Styling for the button container */
+.button-container {
+    margin: 10% 0;
+}
+
+/* Styling for login buttons */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    display: flex; /* Changed to flex to align items */
+    align-items: center; /* Centering items vertically */
+    justify-content: center; /* Centering items horizontally */
+    font-size: 20px;
+    color: #312e35;
+    border: none;
+    border-radius: 5px;
+    background-color: #CCCCFF;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none; /* Remove underlines from links */
+}
+
+/* Styling for the icon inside login button */
+.login-button img {
+    width: 25px; /* Adjust width as needed */
+    height: 25px; /* Adjust height as needed */
+    margin-right: 10px; /* Add space between icon and text */
+}
+
+/* Styling for hover state of login button */
+.login-button:hover {
+    background-color: #592bb3;
+    color: #CCCCFF;
+}
+
+/* Styling for the separator */
+.separator {
+    text-align: center;
+    padding: 20px 20px;
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Media Queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    .Container {
+        width: 90%;
+        margin: 28px auto;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .Container {
+        width: 90%;
+        margin: 28px auto;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+}

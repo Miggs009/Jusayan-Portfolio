@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <title>Registration Form of My Fairee</title>
+    <link rel="stylesheet" href="./CSS/registerStyle.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo"><img src="./img/logoB.png" alt="Logo"></a>
+        <nav class="navbar">
+            
+        </nav>
+    </header>
+    <div class="Container">
+        <form id="registration-form">
+            <h1>Registration</h1>
+
+            <div class="content">
+                <div class="input-box">
+                    <label for="name">Full name</label>
+                    <input type="text" id="name" placeholder="Enter full name" name="name">
+                    <div class="error" id="nameError"></div> <!-- Error message container -->
+                </div>
+                <div class="input-box">
+                    <label for="phone_no">Phone Number</label>
+                    <input type="text" id="phone_no" placeholder="e.g. 09153432145" name="phone_no">
+                    <div class="error" id="phoneNoError"></div> <!-- Error message container -->
+                </div>                
+                <div class="tacbox">
+                    <input id="checkbox" type="checkbox" />
+                    <label for="mylink"> I agree to these <a data-target="#myModal--effect-fullwidth" data-toggle="modal" class="MainNavText" id="MainNavHelp" 
+                    href="#myModal--effect-fullwidth">Terms and Conditions</a>.</label>
+                </div>     
+                <div class="button-container">
+                    <button type="submit" value="submit" class="sub" id="submit">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade fullwidth  " id="myModal--effect-fullwidth" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog fullwidth--box " role="document">
+           <div class="modal-content no--shadow">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="rightclose" aria-hidden="true">&times;</span></button>
+                 <h1 class="modal-title" id="myModalLabel">Terms and Conditions</h1>
+              </div>
+              <div class="modal-body">                              
+          <h3>Welcome to My Fairee</h3>
+          <p>These terms and conditions outline the rules and regulations for the use of our company.</p>
+          <p>
+            By accessing this website we assume you accept these terms and conditions. Do not continue to use our website
+            if you do not agree to take all of the terms and conditions stated on this page.
+          </p>
+          <p>
+            The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and
+            all Agreements: “Client”, “You” and “Your” refers to you, the person log on this website and compliant to the
+            Company's terms and conditions. “The Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our Company.
+            “Party”, “Parties”, or “Us”, refers to both the Client and ourselves. All terms refer to the offer, acceptance
+            and consideration of payment necessary to undertake the process of our assistance to the Client in the most
+            appropriate manner for the express purpose of meeting the Client's needs in respect of provision of the
+            Company's stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the
+            above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as
+            interchangeable and therefore as referring to same.
+          </p>
+          <h3>Introduction</h3>
+          <p>
+              Welcome to My Fairee App, a platform designed to connect parents with on-call nannies. These Terms and Conditions ("Terms") govern your use of the My Fairee App and its services. By using the My Fairee App, you agree to abide by these Terms.
+          </p>
+          <p>
+            Most interactive websites use cookies to let us retrieve the user's details for each visit. Cookies are used
+            by our website to enable the functionality of certain areas to make it easier for people visiting our website.
+            Some of our affiliate/advertising partners may also use cookies.
+          </p>
+          <h3>License</h3>
+          <p>
+            Unless otherwise stated, My Fairee and its licensors own the intellectual property rights for all material on our
+            website. All intellectual property rights are reserved. All content, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software is the property of My Fairee App or its content suppliers and protected by international copyright laws.
+          </p>
+          <p>You must not:</p>
+          <ul>
+            <li>Republish material from our website</li>
+            <li>Sell, rent or sub-license material from our website</li>
+            <li>Reproduce, duplicate or copy material from our website</li>
+            <li>Redistribute content from our website</li>
+          </ul>
+          <h3>Acceptance of Terms</h3>
+          <p>      
+              By using the My Fairee App, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree with these Terms, please do not use the My Fairee App.
+          </p>
+          <h3>User Accounts</h3>
+          <p>
+              To use the My Fairee App, you must create an account. You are responsible for all activities that occur under your account. You must provide accurate and complete information during the registration process.
+          </p>
+          <h3> Services and Fees</h3>
+          <p>The My Fairee App provides on-call nanny services to parents seeking reliable and professional. The services include childcare, elderly care, and all-around household. The specific services provided will be detailed in the booking agreement between the parent and the nanny.         </p>
+          <p>The fee for the services provided by My Fairee App is computed as follows:</p>
+          <ul>
+            <li>Fixed Rate: Nannies are compensated with a fixed rate for the duration of their engagement. This rate is determined by the nanny's qualifications, experience, and the specific needs of the child. The fixed rate will be agreed upon in the booking agreement and will cover the nanny's time and services for the agreed-upon period.
+          </li>
+            <li>Additional Fees: There may be additional fees for specific services or activities, such as transportation fee or specialized care needs. These fees will be detailed in the booking agreement.
+            </li>
+          </ul>
+          <h3>User Conduct</h3>
+          <p>
+              You agree to use the My Fairee App in a manner that complies with all applicable laws and regulations. You must not engage in any illegal activities or use the My Fairee App for any illegal purposes.
+          </p>
+          <h3> Privacy and Security</h3>
+          <p>
+              We are committed to protecting your personal information. Please review our Privacy Policy for more information on how we collect, use, and protect your personal information.
+          </p>
+          <h3>Limitation of Liability</h3>
+          <p>
+              In no event shall My Fairee App or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the My Fairee App, even if My Fairee App or a My Fairee App authorized representative has been notified orally or in writing of the possibility of such damage.
+          </p>
+          <h3>Termination</h3>
+          <p>
+              My Fairee App reserves the right to terminate your access to the My Fairee App, without cause or notice, which may result in the forfeiture and destruction of all information associated with your account.
+          </p>
+          <h3> Changes to Terms</h3>
+          <p>
+              My Fairee App reserves the right to update or change the Terms at any time. We will notify you of any changes by posting the new Terms on this page.
+          </p>
+          <p id="last">
+            As long as the website and the information and services on the website are provided free of charge, we will
+            not be liable for any loss or damage of any nature.
+          </p>            
+              </div>
+              <div class="modal-footer">
+                 <button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
+              </div>
+           </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select the checkbox and submit button
+            var checkbox = document.getElementById('checkbox');
+            var submitBtn = document.getElementById('submit');
+        
+            // Initially disable the submit button
+            submitBtn.disabled = true;
+        
+            // Listen for changes to the checkbox
+            checkbox.addEventListener('change', function() {
+                // If the checkbox is checked, enable the submit button
+                // Otherwise, disable it
+                submitBtn.disabled = !this.checked;
+            });
+        });
+    </script>
+    
+    <script src="./JS/firebase.js" defer type="module"></script>
+    <script src="./JS/registration.js" defer type="module"></script>
+</body>
+
+</html>

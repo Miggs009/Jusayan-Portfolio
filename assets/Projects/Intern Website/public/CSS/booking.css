@@ -1,0 +1,1869 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    zoom: 80%;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;
+}
+.current-page {
+    background-color: #f0f0f0;
+    border-radius: 50px;
+  }
+/* Adjustments for smaller screen sizes */
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+    #date {
+        width: 100%; /* Make the date container full width */
+        margin-top: 20px; /* Adjust margin for smaller screens */
+    }
+    .service-option {
+        margin-right: 10px; /* Adjust margin between service options */
+        margin-bottom: 10px; /* Add margin at the bottom of each service option */
+    }
+    .service-option img {
+        width: 100%; /* Make the images full width */
+    }
+}
+  
+  /* Allow overflow on specific elements */
+  #date,
+  #bookingdetails {
+    overflow: visible; /* or overflow: visible; */
+  }
+  
+
+#date {
+    width: 800px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Add this line */
+}
+
+nav{
+    background-color: #CCCCFF;
+    height:70px;
+  }
+  nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    padding-top:10px;
+    padding-right:20px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav img{
+   margin-top:-3px;
+   width:200px;
+   height:50px;
+  }
+  nav li{
+    height: 50px;
+  }
+  nav a{
+    font-size: 20px;
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  nav a:hover{
+    background-color: #f0f0f0;
+    border-radius: 50px;
+  }
+  nav li:first-child{
+    margin-right: auto;
+  }
+  .sidebar{
+    position: fixed;
+    top: 0; 
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(215, 210, 210, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index:9999;
+  }
+  .sidebar li{
+    width: 100%;
+  }
+  .sidebar a{
+    width: 100%;
+  }
+  .sidebar a:hover{
+    background:#C5BEE7;
+    border-radius: 0px;
+  }
+  .menu-button{
+    display: none;
+  }
+  .logoB{
+    display: block;
+    width: 220px;
+    float: left;
+  }
+  .logo{
+    display: none;
+    max-width: 50px;
+    max-height: 80px;
+    margin-right: 280px;
+}
+  @media(max-width: 826px){
+    .hideOnMobile{
+      display: none;
+    }
+    .menu-button{
+      display: block;
+    }
+    #booktabnavigation{
+        height: 50px;
+        width: 100%;
+    }
+    .booktabnavigation{
+        height: 10px;
+        display:flex;
+    }
+    .booktabnavigation .booktab{
+        font-size: 20px;
+        height: 60px; 
+        padding: 16px 10px;
+    }
+
+  }
+  @media(max-width: 400px){
+    .sidebar{
+      width: 100%;
+    }
+    #booktabnavigation{
+
+        height: 50px;
+        width: 100%;
+
+    }
+    .booktabnavigation{height: 10px; display:flex;}
+    .booktabnavigation .booktab{
+        font-size: 20px;
+        height: 60px;
+        padding: 16px 10px;
+    }
+    .logoB{
+        display: none;
+        margin-right: auto;
+    }
+    .logo {
+        display: block;
+      }
+
+  }
+#menuIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 80px; /* Adjust this value according to your design */
+    right: 0;
+    font-size: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 999;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
+
+.dateheader {
+
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.datetab-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.startdatetab-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+
+.ratetimetab-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.ratetimetab-container fieldset {
+    border: none;
+}
+
+.timeratebox {
+    margin: auto;
+    padding-left: 50px;
+}
+
+.radio-group {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left:20px;
+    align-items: center;
+}
+
+.radio-group label {
+    margin-right: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+.form-check-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+   
+   /* Create a custom checkbox */
+.form-check-label::before {
+    content: "";
+    display: inline-block;
+    width: 20px; /* Width of the custom checkbox */
+    height: 20px; /* Height of the custom checkbox */
+    margin-right: 10px;
+    border: 2px solid #000; /* Border of the custom checkbox */
+    vertical-align: middle;
+}
+.form-check-input:checked + .form-check-label::before {
+ background-color: #8058ac; /* Checked background color */
+}
+   
+.ratetimetab-container input[type="radio"] {
+    width: auto;
+}
+
+
+/* Define the size of the radio buttons */
+.ratetimetab-container input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/* Ensure the radio button content (circle) is centered */
+.ratetimetab-container input[type="radio"]::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.servicecircleradio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+}
+
+.servicecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.service-option {
+    display: inline-block;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    margin-right: 150px;
+}
+
+.service-option label {
+    display: block;
+}
+
+.service-option img {
+    width: 350px;
+    height: auto;
+    margin-top: 5px;
+}
+
+
+.label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.tab-button.active {
+    font-weight: bold;
+}
+
+
+.servicedatelbl {
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.dateinptcenter{
+    text-align: center;
+}
+
+.ordersummarylbl {
+    margin: auto;
+
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.servicedateinput {
+    border: 1px solid #888888;
+    width: 168px;
+    height: 30px;
+    text-align: center;
+    font-size: 22px;
+}
+
+
+.startdatepickerlbl {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.extendlbl {
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-size: 25px;
+    margin-right: 20px;
+
+}
+
+.timeratelbl {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+.startdatepickerinput {
+    background-color: transparent;
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 44px;
+    color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    width: 250px;
+
+}
+
+.booktablecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.order-info {
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.booktable {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+.booktblnone {
+    border-spacing: 0;
+}
+
+.bookth,
+.booktd {
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+}
+
+
+
+.bookrowcolor {
+    background-color: #D9D9D9;
+    opacity: 0.83;
+    border: none;
+    /* Add this line to remove border */
+}
+
+
+.booktab {
+    cursor: pointer;
+    padding: 12px 20px;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.booktab:hover {
+    background-color: rgba(230, 66, 244, 0.22);
+
+}
+
+.booktab.active {
+    background-color: rgba(230, 66, 244, 0.22);
+}
+
+#booktabContent>div {
+    display: none;
+}
+
+#booktabContent>div.active {
+    display: block;
+}
+
+/* Hide overflow on the body when the .hide-overflow class is present */
+.hide-overflow {
+    overflow: hidden;
+  }
+  
+
+#map {
+    position: relative;
+    height: calc(130vh - 100px);
+    width: 100%;
+    z-index: 0;
+    overflow: none;
+}
+
+.bookmenu {
+    background-color: #C5BEE7;
+    text-align: left;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 80px;
+    padding-right: 50px;
+
+}
+
+
+.rounded-div {
+    position: absolute;
+    top: 300px;
+    left: 80px;
+    width: 400px;
+    height: 340px;
+    border-radius: 40px;
+    background-color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    z-index: 1;
+    padding-left: 40px;
+
+}
+
+.rounded-div p {
+    margin: 0;
+    padding: 0;
+}
+
+.save-button {
+    width: 30px; /* Adjust width and height as needed */
+    height: 30px;
+    background-image: url('../img/star.png'); /* Path to your star image */
+    background-size: cover; /* Make sure the image covers the button */
+    background-color: transparent; /* Remove background color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    vertical-align: middle;
+}
+
+#searchInput {
+    width: 305px;
+    height: 33px;
+    border: none;
+    background-color: #D9D9D9;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    text-align: left;
+    padding-left: 10px;
+    margin-left: -30px;
+    margin-bottom: 10px;
+
+}
+
+
+#serveYou {
+    font-weight: bolder;
+    font-size: 25px;
+    text-align: left;
+    line-height: 15px;
+    margin-top: 40px;
+
+}
+
+.locationText {
+    font-size: 19px;
+    text-align: left;
+    line-height: 50px;
+    margin-left:-10px;
+
+}
+
+.locationsubText {
+    font-size: 15px;
+    text-align: left;
+}
+
+
+.greennxt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #34A853;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+}
+
+.greennxt:hover {
+    background-color: #2d833e;
+}
+.greennxt4, .greennxt6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #34A853;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 170px;
+    height: 50px;
+
+
+}
+
+.greennxt4:hover, .greennxt6:hover{
+    background-color: #2d833e;
+}
+.greennxt5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #343aa8;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 340px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.greennxt5:hover {
+    background-color: #2d4e83;
+}
+.greennxt2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #34A853;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 170px;
+    height: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    margin-top:-20px;
+}
+
+.greennxt2:hover {
+    background-color: #2d833e;
+}
+
+.greennxt3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #34A853;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 206px;
+    height: 50px;
+
+}
+
+.greennxt3:hover {
+    background-color: #2d833e;
+}
+.rednnxt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EA4335;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+}
+
+.rednnxt2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EA4335;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 170px;
+    height: 50px;
+
+}
+
+.rednxt2:hover {
+    background-color: #EA4335;
+}
+
+
+.firstBtnNext{
+    position: fixed; /* Fixed positioning */
+    top: 100%; /* Position it vertically at 50% from the top */
+    left: 50%; /* Position it horizontally at 50% from the left */
+    transform: translate(-50%, -50%); /* Move it back by half of its own width and height */
+}
+.btnprevnxt {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin: auto;
+    padding-right: 40px;
+}
+
+.btnprevnxt2 {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 80px;
+}
+.btnprevnxt3 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 600px;
+    margin: auto;
+    margin-bottom: 80px;
+}
+.btnprevnxt4 {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 80px;
+}
+.rednnxt3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EA4335;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 19px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+}
+
+.hide {
+    display: block;
+}
+
+.booktabnavigation {
+    margin-top: 80px;
+    height: 60px;
+    width: 100%;
+    background-color: rgba(217, 217, 217, 0.83);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.bookingDetailstable {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+
+}
+
+.orderinfodiv{
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+
+}
+
+/* ADDRESS DROPDOWN */
+#addressDropdown {
+    width: 340px;
+    height: 33px;
+    border: none;
+    background-color: #D9D9D9;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    text-align: left;
+    padding-left: 10px;
+    margin-left: -30px;
+    margin-bottom: 20px;
+}
+
+.addressText{
+    font-size: 19px;
+    text-align: left;
+    line-height: 30px;
+    margin-left:-10px;
+}
+
+/* Adjust the styles as needed */
+
+#services{
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+}
+.cardcontainer { 
+    width: 100%; /* Set a fixed width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 0 20px; /* Center the container horizontally */
+    /* Other styles */
+}
+.card {
+    width: calc(50% - 40px); /* Calculate width with padding */
+    margin: 0 auto 50px; /* Center horizontally and add bottom margin */
+    padding-left: 15%;
+}
+
+.card{
+    font-family: 'Poppins', sans-serif;
+    height: 550px;
+    width: 350px;
+    position: relative;
+    display: inline-block;
+    flex-direction: column;
+    margin-left:60px;
+    margin-top:30px;
+    justify-content: space-around;
+}
+
+#card1, #card2, #card3{
+    background-color: #faf5ef;
+}
+.card input[type="radio"]{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 7px 7px 15px rgba(2,28,53,0.08);
+    cursor: pointer;
+    outline: none;
+}
+.card input[type="radio"]:before{
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    background-color: #f9fafd;
+    border: 1px solid #e2e6f3;
+    border-radius: 50%;
+    top: 35px;
+    right: 20px;
+}
+.card input[type="radio"]:after{
+    content: "";
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    background-color: transparent;
+    border-radius: 50%;
+    top: 39.5px;
+    right: 24.5px;
+}
+.card label{
+    position: absolute;
+    margin: 20px;
+    cursor: pointer;
+}
+.card h5{
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin: 5px 0 5px 30px;
+}
+.card h4{
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin: 5px 0 5px 20px;
+}
+.card h2{
+    font-size: 28px;
+}
+.card span{
+    font-weight: 400;
+    font-size: 18px;
+    color: #7b7b93;
+}
+.card input[type="radio"]:hover{
+    transform: scale(1.05);
+}
+.card input[type="radio"]:checked{
+    border: 3px solid #9d71c9;
+}
+.card input[type="radio"]:checked:after{
+    background-color: #9d71c9;
+}
+
+.card img{
+    padding:5px;
+    width: 250px;
+    margin-left:30px;
+    height: auto;
+    margin-top: 5px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.card ul li{
+    align-items:center;
+    font-size: 14px;
+    margin-left:50px;
+}
+@media screen and (min-width: 1632px) and (max-width: 2560px) {
+    .card {
+        font-family: 'Poppins', sans-serif;
+        height: 550px;
+        width: 350px;
+        position: relative;
+        display: inline-block;
+        flex-direction: column;
+        margin-left: 90px;
+        margin-top: 30px;
+        justify-content: space-around;
+    }
+}
+/* Style the time picker container */
+.flatpickr-time {
+    width: 57%;
+    height: 100px;
+    border: transparent;
+    border-radius: 5px;
+    background-color: #ababab;
+    color: #000000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.flatpickr-calendar {
+    box-sizing: initial !important;
+    -ms-touch-action: initial !important;
+    touch-action: initial !important;
+    background: initial !important;
+    -webkit-box-shadow: initial !important;
+    box-shadow: initial !important;
+}
+
+.numInputWrapper span {
+    position: absolute !important;
+    right: 0 !important;
+    width: 14px !important;
+    padding: 0 4px 0 2px !important;
+    height: 50% !important;
+    line-height: 50% !important;
+    cursor: pointer !important;
+    border: 1px solid rgba(57, 57, 57, 0.15) !important;
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+
+.flatpickr-time input.flatpickr-hour {
+    font-weight: bold !important;
+    font-size: 24px !important;
+    color: #000000 !important ;
+}
+
+.flatpickr-time input {
+    background: transparent !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: inherit !important;
+    line-height: inherit !important;
+    color: #393939 !important;
+    font-size: 24px !important;
+    position: relative !important;
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    -webkit-appearance: textfield !important;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+}
+
+.flatpickr-time .flatpickr-am-pm {
+    outline: 0 !important;
+    width: 17% !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    color: #000000 !important ;
+}
+
+.flatpickr-time input.flatpickr-minute, .flatpickr-time input.flatpickr-second {
+    font-weight: 400 !important;
+    color: #000000 !important ;
+}
+/* Time Picker Styling */
+.startdatepickerinput {
+    border: 1px solid #888888;
+    width: 168px;
+    height: 50px;
+    text-align: center;
+    font-size: 22px;
+    outline: none; /* Remove the outline when focused */
+    border-radius: 5px; /* Add some border radius for a softer look */
+    transition: border-color 0.3s ease; /* Add a smooth transition for the border color */
+}
+/* Style the placeholder text */
+.startdatepickerinput::placeholder {
+    color: #888888;
+}
+
+/* Add hover effect */
+.startdatepickerinput:hover {
+    border-color: #555555; /* Change border color on hover */
+}
+
+/* Add focus effect */
+.startdatepickerinput:focus {
+    border-color: #4CAF50; /* Change border color when focused */
+}
+#CEServiceForm {
+    margin-top:30px !important;
+    padding-top:20px;
+    width: 70%; /* Adjust width as needed */
+    margin: 0 auto; /* This will center the form horizontally */
+    background-color: #FFFFF0;
+    border-radius: 10px;
+    box-shadow: 7px 7px 15px rgba(2,28,53,0.08);
+    margin-bottom:40px !important;
+}
+#allaroundForm {
+    margin-top:30px !important;
+    padding-top:20px;
+    width: 70%; /* Adjust width as needed */
+    margin: 0 auto; /* This will center the form horizontally */
+    background-color: #FFFFF0;
+    border-radius: 10px;
+    box-shadow: 7px 7px 15px rgba(2,28,53,0.08);
+    margin-bottom:40px !important;
+}
+
+.radio-button {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: #fff; /* Default background color */
+    border: 2px solid #000; /* Default border color */
+    outline: none;
+    cursor: pointer;
+}
+.radio-button:checked {
+    background-color: #000; /* Checked background color */
+    border-color: #000; /* Checked border color */
+}
+   
+.servicesLabel{
+    font-size: 22px;
+    font-weight: bold;
+    margin-left:20px;
+}
+.form-check{
+    font-size:20px;
+    margin: 10px 0px 10px 240px;
+}
+#others{
+    width: 400px;
+    height: 25px;
+}
+#details{
+    background-color: #fff;
+}
+.serviceForm{
+    display: flex;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+.serviceForm label {
+    width: 210px; 
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.ageGender #childAge{
+    margin-left: 10px;
+    width: 100%;
+}
+.ageGender #elderlyAge{
+    margin-left: 10px;
+    width: 100%;
+}
+.serviceForm input {
+    flex: 1;
+    height: 50px;
+    margin-top:-10px;
+}
+.servicesLabel{
+    font-size: 18px;
+}
+#allaroundForm .serviceForm label {
+    width: 210px; 
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right:10px;
+}
+#allaroundForm .form-check label {
+    font-size: 17px;
+}
+.serviceForm textarea{ /* Details */
+    flex: 1;
+    height: 60px;
+    font-family: Arial, sans-serif;
+}
+.tabcontent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.ageGender{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 25px;
+}
+.ageGender .ageLabel{
+    width: 200px; /* Adjust the width as needed */
+    font-size: 22px;
+    font-weight: bold;
+}
+.ageGender input {
+    flex: 1;
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+.genderLabel{
+    font-size: 22px;
+    margin-left: 50px;
+    padding-right: 50px;
+    font-weight: bold;
+}
+.row {
+    display: inline-flex;
+    align-items: center;
+}
+
+.row > * {
+    margin-right: 10px;
+}
+
+.genderInput {
+    display: flex;
+    align-items: center;
+}
+.genderInput label {
+    margin-right: 50px;
+    margin-left:20px;
+    width: auto;
+    font-size: 20px;
+    cursor: pointer;
+}
+.radio-button{
+    cursor: pointer;
+}
+@media (max-width: 1020px) {
+    .serviceForm {
+        flex-direction: column; /* Stack items vertically */
+        align-items:left;
+        text-align: left;
+        padding: 5px 20px;
+    }
+    .serviceForm label {
+        width: 100%; /* Full width on smaller screens */
+        font-size: 16px;
+        margin-bottom:10px;
+        margin-left:0px;
+    }
+    .serviceForm input, .serviceForm textarea {
+        width: 100%; /* Full width on smaller screens */
+        
+    }
+    .serviceForm textarea {
+        margin-left:0px;
+        
+    }
+    .serviceForm input {
+        flex: 1;
+        font-size: 17px;
+        margin-left:-4px;
+    }
+    .ageGender {
+        flex-direction: column;
+        width: 100%;
+    }
+    .ageGender .ageLabel {
+        flex-direction: column;
+        width: 100%;
+        font-size: 16px;
+        margin-bottom:10px;
+        margin-top:-20px;
+    }
+    .ageGender .genderLabel {
+        flex-direction: column;
+        width: 100%;
+        font-size: 16px;
+        margin-left:-5px;
+        margin-top:20px;
+    }
+    .ageGender .genderInput {
+        width: 100%;
+        margin-left:-40px;
+        flex-direction: column; /* Stack radio buttons vertically */
+        display: flex;
+    }
+    .genderInput label{
+        margin-left:130px;
+        font-size: 15px;
+        margin-top:-37px; 
+        display:flex;
+        float:left;
+    }
+    .ageGender .genderInput input[type="radio"] {
+        margin-left: -10px;
+        margin-bottom:20px;
+        float:left;
+    }
+    .radio-button{
+        margin-top:20px;
+    }
+    .form-check{
+        font-size:15px;
+        margin: 10px 0px 10px 30px;
+    }
+    .servicesLabel{
+        font-size: 15px;
+        width: 100%; 
+    }
+    #allaroundForm .serviceForm label {
+        width: 100%; 
+        font-size: 15px;
+        font-weight: bold;
+        margin-left: 0px;
+    }
+    #allaroundForm .form-check label {
+        font-size: 14px;
+    }
+    #others{
+        display:flex;
+        width:97%;
+        margin: 10px 0px 10px 0px;
+        padding-right: -30px;
+    }
+ 
+ }
+ @media (max-width: 768px) {
+    .rounded-div {
+        position: absolute;
+        top: 250px;
+        left: 30px;
+        width: 400px;
+        height: 340px;
+        border-radius: 40px;
+        background-color: white;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        z-index: 1;
+        padding-left: 40px;
+    
+    }
+    .cardcontainer {
+        margin: 0 auto;
+        padding-left:0%; 
+    }
+    .card {
+        padding-left:0px;
+    }
+    .btnprevnxt4 {
+        display: block;
+        width: 200px;
+        margin-top:30px;
+        margin-bottom: 30px;
+    }
+    .rednnxt2{
+        margin-left: 10%;
+        margin-bottom: 20px;
+    }
+    .greennxt4 {
+        margin-left: 10%;
+    }
+    .greennxt6 {
+        margin-left: 10%;
+    }
+    .btnprevnxt3{
+        align-items:center;
+        display: block;
+        width: 200px;
+        margin-top:30px;
+        margin-bottom: 30px;
+    }
+    .rednnxt3{
+        margin-bottom: 20px;
+    }
+    .btnprevnxt2{
+        display: block;
+        width: 200px;
+        margin-top:30px;
+        margin-bottom: 30px;
+    }
+
+    .greennxt5{
+        width: 190px;
+        margin-bottom: 20px;
+        /*margin-left: -15px;*/
+    }
+
+ }
+ @media only screen and (max-width: 768px) {
+    .ordersummarylbl{
+        font-size: 25px;
+    }
+    .orderinfodiv {
+        display: block;
+        text-align: center;
+    }
+    table, thead, tbody, th, td, tr {
+        box-sizing: border-box;
+    }
+    /* Center the table horizontally */
+    table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    th, td {
+        font-size: 12px; /* Adjust the font size as needed */
+        text-align: center; /* Center text within cells */
+    }
+    tr {
+        border: 1px solid #ccc;
+        width: 50%;
+        margin-left:200px;
+    }
+    td {
+        /* Behave like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        height: 40px; /* Adjust the height as needed */
+    }
+   
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+}
+/* Styles for time picker in mobile view */
+@media (max-width: 767px) {
+    .flatpickr-time {
+        width: 80%;
+        margin: 10px auto;
+        background-color: #F1EDE0; /* Adjust background color */
+        /* Add additional styles as needed for mobile */
+    }
+    
+    .flatpickr-time input.flatpickr-hour,
+    .flatpickr-time input.flatpickr-minute,
+    .flatpickr-time input.flatpickr-second {
+        font-size: 16px;
+        padding: 8px;
+        width: 40px;
+        background-color: #F1EDE0; /* Adjust background color */
+        /* Add additional styles as needed for mobile */
+    }
+    
+    .flatpickr-time .flatpickr-am-pm {
+        font-size: 14px;
+        padding: 8px;
+        width: 25%;
+        background-color: #F1EDE0; /* Adjust background color */
+        /* Add additional styles as needed for mobile */
+    }
+}
+
+/* Styles for time picker on smaller screens */
+@media (max-width: 480px) {
+    .flatpickr-time {
+        width: 90%;
+        margin: 10px auto;
+        background-color: #F1EDE0; /* Adjust background color */
+        /* Add additional styles as needed for smaller screens */
+    }
+    
+    .flatpickr-time input.flatpickr-hour,
+    .flatpickr-time input.flatpickr-minute,
+    .flatpickr-time input.flatpickr-second {
+        font-size: 14px;
+        padding: 6px;
+        width: 35px;
+        background-color: #F1EDE0; /* Adjust background color */
+        /* Add additional styles as needed for smaller screens */
+    }
+    
+    .flatpickr-time .flatpickr-am-pm {
+        font-size: 12px;
+        padding: 6px;
+        width: 30%;
+        background-color: #F1EDE0; /* Adjust background color */
+        /* Add additional styles as needed for smaller screens */
+    }
+}
+
+  
+  /* Adjustments for smaller screen sizes */
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+    #date {
+        width: 100%; /* Make the date container full width */
+        margin-top: 20px; /* Adjust margin for smaller screens */
+    }
+    .service-option {
+        margin-right: 50px; /* Adjust margin between service options */
+    }
+    .service-option img {
+        width: 250px; /* Reduce image size for smaller screens */
+    }
+}
+
+/* Update for responsiveness */
+@media only screen and (max-width: 400px) {
+    #additional-inputs{
+        margin-left:31.5% !important;
+    }
+}
+
+/* Custom CSS styles */
+.bookingDetailstable {
+    max-width: 100%;
+    overflow-x: hidden;
+    border-collapse: collapse;
+}
+
+.bookingDetailstable th,
+.bookingDetailstable td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+@media only screen and (max-width: 768px){
+.orderinfodiv {
+    display: block;
+    text-align: -webkit-left;
+    margin-left: 20%;
+    width: 60%;
+}
+table, thead, tbody, th, td, tr {
+    box-sizing: border-box;
+}
+.rednnxt3 {
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+.orderinfodiv .block-p {
+    display: block;
+ }
+ .order-info2{
+    display: block;
+    text-align: -webkit-left;
+    margin-left: 5%;
+ }
+}
+/* Footer CSS */
+.content {
+    min-height: calc(100vh - 250px);
+}
+.footer-distributed{
+    position: relative;
+    bottom: 0;
+    font-family: Open Sans;
+	background:#CCCCFF ;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 30px 50px;
+    margin-top:30px;
+    margin-bottom: 0px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+    font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #2b2d2e;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #2d3133;
+    font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #5D0177;
+	text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-distributed .footer-links a:after {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  margin-left: 5px;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  rgb(58, 56, 56);
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+    width: 70%;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #5D0177;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.center{
+    color: #5D0177;
+}
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #2d3133;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		text-align: left;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+    .footer-links{
+        width:70%;
+    }
+ 
+}
+
+#newsletter-social {
+    margin: 0 auto;
+    text-align: left;
+  }
+      
+  /* Newsletter Styling */ 
+  #newsletter {
+    text-align: left;
+    display: inline-block;
+  }
+  
+  p.deals {
+    font-size: 13px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 500; 
+    text-align: center;
+    margin:20px 0px 10px 0px; 
+    color:rgb(49, 48, 48);
+  }
+  
+  input[type=text] {
+      padding: 15px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px #D9D6D6;
+      background-color: #F2F2F2;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: Helvetica, Arial, Sans-Serif;
+      font-weight: 500;
+  }
+  input[type=button], input[type=submit], input[type=reset] {
+  
+      background-color: #0677FF;
+      border: 2px;
+      border-radius: 4px;
+      color: white;
+      padding: 15px 35px;
+      text-decoration: none;
+      margin: 20px 0px;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: Helvetica, Arial, Sans-Serif;
+      font-weight: 900;
+  }
+  #additional-inputs{
+    margin-left:40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:-40px;
+    margin-bottom:30px;
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #ffbd03;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 10px 15px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+#additional-inputs:hover {
+    background-color: #9b7c25;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+    box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+#additional-inputs:active {
+    transform: translateY(2px);
+    transition-duration: .35s;
+} 
+/*add*/
+.modal-content h2{
+    color:red;
+    margin-bottom:20px;
+    text-decoration: underline;
+}
+.modal-content p{
+    margin-bottom:10px;
+}
+.modal-content li{
+    margin-bottom:10px;
+    margin-left:50px;
+}
+.modal-content h3{
+    margin-bottom:10px;
+}
+.doneBtn{
+    margin-bottom: 20px;
+}
+.close2 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+.close2:hover,
+.close2:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}

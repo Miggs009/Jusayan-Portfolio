@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+
+    <style>
+        @media (max-width: 406px) {
+            #sendMessageBtn.hiddenonsmallscreen {
+                display: none;
+            }
+
+            .flex.items-center.flex-wrap {
+                position: relative;
+            }
+
+            #sendMessageBtn.revealedonsmallscreen {
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
+
+            #messageInput {
+                width: calc(100% - 100px);
+            }
+
+            .flex.items-center.ml-2.mb-2 img {
+                width: 20px;
+                height: 25px;
+            }
+
+        }
+
+        @media (min-width: 407px) {
+            #sendMessageBtn.revealedonsmallscreen {
+                display: none;
+            }
+        }
+
+        /* Default style for desktop */
+        #chatMessagesinputs {
+            height: 550px;
+            background-image: url('./img/message-bg.jpg');
+            background-size: contain;
+        }
+
+        /* Style for mobile devices */
+        @media (max-width: 768px) {
+            #chatMessagesinputs {
+                height: 450px;
+            }
+        }
+
+        /* Base styles */
+.text-2xl {
+ font-size: 2rem; /* Example size for text-2xl */
+}
+
+.text-xl {
+ font-size: 1.5rem; /* Example size for text-xl */
+}
+
+/* Adjust font size for smaller screens */
+@media (max-width: 300px) {
+ .text-2xl {
+    font-size: 1.5rem; /* Smaller size for text-2xl on small screens */
+ }
+
+ .text-xl {
+    font-size: 1rem; /* Smaller size for text-xl on small screens */
+ }
+}
+
+    </style>
+
+
+
+
+</head>
+
+<body style="background-color: white;">
+
+
+
+    <nav class="bg-purple-300 p-4 font-semibold mb-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <img src="./img/logoB.png" alt="Logo" class="logo lg:block hidden" style="width: 220px;">
+            <img src="./img/logo.png" alt="Logo" class="logo lg:hidden block"
+                style="max-width: 150px; max-height: 80px;">
+
+            <!-- Navigation Links -->
+            <div class="hidden md:block flex items-center"> <!-- Add 'flex items-center' here -->
+                <a href="./booking.html" class="px-4 py-2 hover:bg-white rounded-full">Book Now</a>
+                <a href="./userprofile.html" class="px-4 py-2 hover:bg-white rounded-full">User Profile</a>
+                <a href="./bookinghistory.html" class="px-4 py-2 hover:bg-white rounded-full">Booking History</a>
+                <a href="./contactus.html" class="px-4 py-2 hover:bg-white rounded-full">Contact Us</a>
+                <a href="#" onclick="logout()" id="login" class="px-4 py-2 hover:bg-white rounded-full">Logout</a>
+
+
+
+                <button id="openNotifyModal" class="relative duration-300 py-2 px-4 text-blue-100 rounded"
+                    data-modal-target="medium-modal" data-modal-toggle="medium-modal"
+                    style="background-color: rgba(190, 24, 93);">
+                    <img src="./img/notificationbell2.svg" alt="Notification Bell" class="h-6 w-6">
+                    <span id="notification-count"
+                        class="absolute text-blue-100 px-2 py-1 text-xs font-bold rounded-full -top-3 -right-3"
+                        style="background-color: rgb(82, 38, 147);">
+                        -
+                    </span>
+                </button>
+
+
+
+                <!-- Notification Modal -->
+                <div id="medium-modal" tabindex="-1"
+                    class="fixed z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full flex justify-end mt-14">
+                    <div class="relative w-full max-w-lg max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow dark:bg-black">
+                            <!-- Modal header -->
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b border-black rounded-t dark:border-black">
+                                <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                                    Notification
+                                </h3>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    data-modal-hide="medium-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+
+                            <div id="notification-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Notification Modal -->
+            <div id="medium-modal2" tabindex="-1"
+                class="fixed z-50 hidden inset-0 overflow-x-hidden overflow-y-auto flex justify-center items-center">
+                <div class="relative w-full max-w-lg max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow dark:bg-black">
+                        <!-- Modal header -->
+                        <div
+                            class="flex items-center justify-between p-4 md:p-5 border-b border-black rounded-t dark:border-black">
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                                Notification
+                            </h3>
+                            <button type="button"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                data-modal-hide="medium-modal2">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+
+                        <div id="notification-list2"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <button id="openNotifyModalButton2"
+                class="relative duration-300 py-2 px-4 text-blue-100 rounded md:hidden mr-8"
+                data-modal-target="medium-modal2" data-modal-toggle="medium-modal2"
+                style="background-color: rgba(190, 24, 93); margin-left: auto;">
+                <img src="./img/notificationbell2.svg" alt="Notification Bell" class="h-6 w-6">
+                <span id="notification-count2"
+                    class="absolute text-blue-100 px-2 py-1 text-xs font-bold rounded-full -top-3 -right-3"
+                    style="background-color: rgb(82, 38, 147);">
+                    -
+                </span>
+            </button>
+
+            <!-- Hamburger Menu Icon -->
+            <img src="./img/menu.png" alt="Menu" id="menuIcon" class="md:hidden w-8 h-8">
+
+        </div>
+
+        <!-- Dropdown Menu for mobile -->
+        <div class="md:hidden" id="mobileDropdownMenu" style="display: none;">
+            <a href="./booking.html" class="block px-4 py-2 hover:bg-purple-400">Book Now</a>
+            <a href="./userprofile.html" class="block px-4 py-2 hover:bg-purple-400">User Profile</a>
+            <a href="./bookinghistory.html" class="block px-4 py-2 hover:bg-purple-400">Booking History</a>
+            <a href="./contactus.html" class="block px-4 py-2 hover:bg-purple-400">Contact Us</a>
+            <a href="#" onclick="logout()" id="mobileLogin" class="block px-4 py-2 hover:bg-purple-400">Logout</a>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <div class="mx-auto mt-4 h-[800px] sm:h-[600px] md:h-[500px] lg:h-[400px] xl:h-[300px] ">
+
+        <div class="max-w-7xl mx-auto mt-4 h-[800px] sm:h-[600px] md:h-[500px] lg:h-[400px] xl:h-[300px] ">
+            <h1 id="assignedTitle" style="color: rgb(0, 0, 0);" class="text-5xl font-bold mb-12 text-center">
+                Chats</h1>
+
+
+            <div id="nannyProfiles"
+                class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 justify-center">
+            </div>
+
+        </div>
+
+        <!-- Chat tab -->
+        <div id="chatTab" class="hidden max-w-7xl mx-auto">
+            <div class="shadow-md rounded-lg p-4 max-w-7xl mx-auto mt-4 h-[800px] sm:h-[600px] md:h-[500px] lg:h-[400px] xl:h-[300px]"
+                style="background-color: #fff8e7;">
+
+
+                <div class="flex flex-col sm:flex-row justify-between items-center mb-2">
+                    <h2 class="text-2xl font-bold sm:order-last">Chat with Fairee</h2>
+                    <div id="chatParticipants" class="text-xl font-semibold sm:order-first">Participants:</div>
+                </div>
+
+
+                <!-- Display last seen time -->
+                <div id="lastSeen" class="text-base mb-2">last seen on</div>
+
+                <!-- Chat content -->
+                <div id="chatMessages" class="mb-4 max-h-80 overflow-y-auto"></div>
+
+
+
+                <!-- Place the black div outside the chatMessagesinputs div -->
+                <div class="relative">
+                    <div id="chatMessagesinputs"
+                        class="border border-gray-300 rounded-md p-4 mb-4 bg-white max-h-screen overflow-y-auto"
+                        style="background-image: url('./img/message-bg.jpg'); background-size: contain;"
+                        onscroll="checkScroll()">
+                        <!-- Chat messages will be rendered here -->
+                    </div>
+                    <!-- Black circle div, initially hidden with 'hidden' class that will be controlled by JS -->
+                    <div id="downArrow"
+                        class="flex justify-center items-center absolute bottom-0 left-0 right-0 mb-1 hidden">
+                        <img src="./img/down.png" alt="Down Arrow" class="w-8 h-8 cursor-pointer"
+                            onclick="scrollToBottom()">
+                    </div>
+                </div>
+
+
+                <!-- Existing Structure -->
+                <div class="flex items-center flex-wrap">
+                    <div class="flex items-center ml-2 mb-2">
+                        <!-- Updated with onclick attribute -->
+                        <img src="./img/pointers.png" alt="Pointers" class="h-8 w-8 mr-2 cursor-pointer"
+                            onclick="openPointersModal()">
+                        <img src="./img/emoji.png" alt="Emoji" class="h-8 w-8 mr-2 cursor-pointer"
+                            onclick="openEmojiModal()">
+
+                        <div id="sendMessageBtn"
+                            class="flex items-center justify-center bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2 revealedonsmallscreen">
+                            <img src="./img/sendmessageicon.svg" alt="Send Message" class="h-8 w-8">
+                        </div>
+                    </div>
+                    <input type="text" id="messageInput"
+                        class="flex-1 border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring focus:ring-blue-200 sm:w-4/6 md:w-3/6 lg:w-2/6 xl:w-1/6"
+                        placeholder="Type your message...">
+                    <div id="sendMessageBtn"
+                        class="flex items-center justify-center bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2 hiddenonsmallscreen">
+                        <img src="./img/sendmessageicon.svg" alt="Send Message" class="h-8 w-8">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Back button -->
+            <button id="backToProfilesBtn" onclick="backToProfiles()"
+                class="mt-4 bg-purple-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mb-8">Back to
+                Profiles</button>
+
+            <!-- Modal Structure (with responsive adjustments) -->
+            <div id="pointersModal"
+                class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+                <!-- Centering the modal content for all screen sizes -->
+                <div class="flex items-center justify-center min-h-full p-4 text-center sm:p-0">
+                    <!-- Responsive width and margin auto for top and bottom on small screens, and shadow adjustments -->
+                    <div
+                        class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg w-full">
+                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                            <div class="sm:flex sm:items-start">
+                                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Service
+                                        Details</h3>
+                                    <div class="mt-2">
+                                        <p>Age: <span id="age"></span></p>
+                                        <p>Name: <span id="name"></span></p>
+                                        <p>Gender: <span id="gender"></span></p>
+                                        <p>Likes: <span id="likes"></span></p>
+                                        <p>Routines: <span id="routines"></span></p>
+                                        <p>Skills: <span id="skills"></span></p>
+                                        <p>Requests: <span id="requests"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                            <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                <button onclick="closePointersModal()" type="button"
+                                    class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none sm:text-sm sm:leading-5">
+                                    Close
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Structure (with responsive adjustments) -->
+            <div id="emojiModal"
+                class="hidden fixed inset-0 bg-gray-600 bg-opacity-0 overflow-y-auto h-full w-full pointer-events-none">
+                <!-- Centering the modal content for all screen sizes -->
+                <div class="flex items-center justify-center min-h-full p-4 text-center sm:p-0">
+                    <!-- Responsive width and margin auto for top and bottom on small screens, and shadow adjustments -->
+                    <div
+                        class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg w-full pointer-events-auto">
+                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                            <div class="sm:flex sm:items-start">
+                                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Select
+                                        Emoji</h3>
+                                    <div class="mt-2 h-64 overflow-y-auto">
+                                        <div class="flex flex-wrap justify-center">
+                                            <!-- HTML -->
+                                            <div id="emoji-buttons" class="flex flex-wrap"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                            <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                <button onclick="closeEmojiModal()" type="button"
+                                    class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none sm:text-sm sm:leading-5">
+                                    Close
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <script>
+        // JavaScript to toggle dropdown menu on hamburger click
+        document.getElementById('menuIcon').addEventListener('click', function () {
+            var mobileMenu = document.getElementById('mobileDropdownMenu');
+            if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+                mobileMenu.style.display = 'block';
+            } else {
+                mobileMenu.style.display = 'none';
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // JavaScript logic to handle modal opening and closing for modal2
+            const openNotifyModalButton2 = document.getElementById('openNotifyModalButton2');
+            const mediumModal2 = document.getElementById('medium-modal2');
+
+            openNotifyModalButton2.addEventListener('click', function () {
+                mediumModal2.classList.toggle('hidden');
+            });
+
+            // Add event listener to close button inside modal
+            const closeModalButtons2 = document.querySelectorAll('[data-modal-hide]');
+            closeModalButtons2.forEach(button => {
+                button.addEventListener('click', function () {
+                    mediumModal2.classList.add('hidden');
+                });
+            });
+
+            // JavaScript logic to handle modal opening and closing for modal1
+            const openNotifyModalButton = document.getElementById('openNotifyModal');
+            const mediumModal = document.getElementById('medium-modal');
+
+            openNotifyModalButton.addEventListener('click', function () {
+                mediumModal.classList.toggle('hidden');
+            });
+
+            // Add event listener to close button inside modal
+            const closeModalButtons = document.querySelectorAll('[data-modal-hide]');
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    mediumModal.classList.add('hidden');
+                });
+            });
+        });
+
+
+    </script>
+
+
+
+
+    <script>
+
+        // JavaScript
+        const emojis = [
+            '😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃', '🫠', '😉', '😊', '😇', '🥰',
+            '😍', '🤩', '😘', '😗', '😚', '😙', '🥲', '😋', '😛', '😜', '🤪', '😝', '🤑', '🤗', '🤭',
+            '🫢', '🫣', '🤫', '🤔', '🫡', '🤐', '🤨', '😐', '😑', '😶', '🫥', '😶‍🌫️', '😏', '😒',
+            '🙄', '😬', '😮‍💨', '🤥', '🫨', '😌', '😔', '😪', '🤤', '😴', '😷', '🤒', '🤕', '🤢',
+            '🤮', '🤧', '🥵', '🥶', '🥴', '😵', '😵‍💫', '🤯', '🤠', '🥳', '🥸', '😎', '🤓', '🧐',
+            '😕', '🫤', '😟', '🙁', '☹️', '😮', '😯', '😲', '😳', '🥺', '🥹', '😦', '😧', '😨',
+            '😰', '😥', '😢', '😭', '😱', '😖', '😣', '😞', '😓', '😩', '😫', '🥱', '😤', '❤️',
+            '🩷', '🧡', '💛', '💚', '💙', '🩵', '💜', '🤎', '🖤', '🩶', '🤍', '💋', '💯', '💢',
+            '💥', '💫', '👋', '🤚', '🖐️', '✋', '🖖', '🫱', '🫲', '🫳', '🫴', '🫷', '🫸', '👌',
+            '🤌', '🤏', '✌️', '🤞', '🫰', '🤟', '🤘', '🤙', '👈', '👉', '👆', '🖕', '👇', '☝️',
+            '🫵', '👍', '👎', '✊', '👊', '🤛', '🤜', '👏'
+        ];
+
+        const emojiContainer = document.getElementById('emoji-buttons');
+
+        emojis.forEach(emoji => {
+            const button = document.createElement('button');
+            button.textContent = emoji;
+            button.classList.add('emoji-btn', 'text-3xl');
+            button.onclick = () => insertEmoji(emoji);
+            emojiContainer.appendChild(button);
+        });
+
+        function openEmojiModal() {
+            document.getElementById("emojiModal").classList.remove("hidden");
+        }
+
+        function closeEmojiModal() {
+            document.getElementById("emojiModal").classList.add("hidden");
+        }
+
+        function insertEmoji(emoji) {
+            const messageInput = document.getElementById("messageInput");
+            messageInput.value += emoji;
+        }
+    </script>
+    <!-- Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore-compat.js"></script>
+    <script src="./JS/chattingwithnanny.js"></script>
+
+</body>
+
+</html>

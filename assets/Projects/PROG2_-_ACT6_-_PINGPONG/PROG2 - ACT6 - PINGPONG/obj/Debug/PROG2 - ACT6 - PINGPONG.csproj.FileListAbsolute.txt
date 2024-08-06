@@ -1,0 +1,20 @@
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.csprojAssemblyReference.cache
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2___ACT6___PINGPONG.Form1.resources
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2___ACT6___PINGPONG.Properties.Resources.resources
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.csproj.GenerateResource.cache
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.csproj.CoreCompileInputs.cache
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\bin\Debug\PROG2 - ACT6 - PINGPONG.exe.config
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\bin\Debug\PROG2 - ACT6 - PINGPONG.exe
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\bin\Debug\PROG2 - ACT6 - PINGPONG.pdb
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.exe
+C:\Users\MigMig\source\repos\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.pdb
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\bin\Debug\PROG2 - ACT6 - PINGPONG.exe.config
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\bin\Debug\PROG2 - ACT6 - PINGPONG.exe
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\bin\Debug\PROG2 - ACT6 - PINGPONG.pdb
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.csproj.AssemblyReference.cache
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2___ACT6___PINGPONG.Form1.resources
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2___ACT6___PINGPONG.Properties.Resources.resources
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.csproj.GenerateResource.cache
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.csproj.CoreCompileInputs.cache
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.exe
+C:\Users\yasuo\OneDrive\Documents\MigMig\Visual Studio\PROG2 - ACT6 - PINGPONG\obj\Debug\PROG2 - ACT6 - PINGPONG.pdb

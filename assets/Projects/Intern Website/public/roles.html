@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Role</title>
+    <link rel="stylesheet" href="./CSS/roles.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><img src="./img/logoB.png" alt="Logo"></a>
+        <nav class="navbar">
+            
+        </nav>
+    </header>
+    <div class="Container">
+        
+            <h1>Choose Your Role</h1>
+            <div class="content">
+            <button id="nanny-button">Nanny</button>
+            <button id="parent-button">Parent</button>
+            </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const nannyButton = document.getElementById("nanny-button");
+    const parentButton = document.getElementById("parent-button");
+
+    if (nannyButton) {
+        nannyButton.addEventListener("click", function() {
+            // Redirect to nanny registration page
+            window.location.href = "nannyReg.html";
+        });
+    }
+
+    if (parentButton) {
+        parentButton.addEventListener("click", function() {
+            // Redirect to parent registration page
+            window.location.href = "register.html";
+        });
+    }
+});
+
+    </script>
+    
+</body>
+</html>

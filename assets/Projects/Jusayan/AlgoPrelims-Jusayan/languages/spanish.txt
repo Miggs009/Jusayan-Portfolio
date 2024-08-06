@@ -1,0 +1,14 @@
+Bienvenidos
+Nombre
+Dirección
+Número de contacto
+Cumpleaños
+Género
+Estado civil
+Masculino
+Femenino
+Único
+Casado
+Viuda
+Tema
+Idioma

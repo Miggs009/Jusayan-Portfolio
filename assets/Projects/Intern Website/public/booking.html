@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking</title>
+  <link rel="stylesheet" href="./CSS/booking.css">
+  <link rel="stylesheet" href="./CSS/qr.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  
+<style>
+/* alertmodal Styles */
+.alertmodal {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    z-index: 9999;
+  }
+  
+  .alertmodal-content {
+    font-family: Arial, sans-serif; /* Change font to Arial */
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 50%;
+    margin: auto;
+  }
+
+  .alertmodal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .alertmodal-header .title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #6b46c1; /* Purple color */
+  }
+
+  .alertmodal-header .close-alertbtn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #6b46c1; /* Purple color */
+  }
+
+  .alertmodal-body {
+    padding: 0.5rem;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .alertmodal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+  }
+
+  /* Button Styles */
+  .alertbtn {
+    background-color: #6b46c1; /* Purple color */
+    color: #fff;
+    font-family: Arial, sans-serif; /* Change font to Arial */
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem; /* Add space to the bottom */
+  }
+
+  .alertbtn:hover {
+    background-color: #553c9a; /* Darker shade of purple */
+  }
+
+</style>
+</head>
+
+<body>
+
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="./booking.html">Book Now</a></li>
+      <li><a href="./userprofile.html">User Profile</a></li>
+      <li><a href="./bookinghistory.html">Booking History</a></li>
+      <li><a href="./contactus.html">Contact Us</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+    <ul>
+      <li> <img src="./img/logoB.png" alt="Logo" class="logoB"></li>
+      <li> <img src="./img/logo.png" alt="Logo" class="logo"></li>
+      <li class="hideOnMobile"><a href="./booking.html">Book Now</a></li>
+      <li class="hideOnMobile"><a href="./userprofile.html">User Profile</a></li>
+      <li class="hideOnMobile"><a href="./bookinghistory.html">Booking History</a></li>
+      <li class="hideOnMobile"><a href="./contactus.html">Contact Us</a></li>
+      <li class="hideOnMobile"><a href="#" onclick="logout()">Logout</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+
+  <form id="bookingForm">
+
+    <div id="booktabnavigation" class="hide">
+      <div class="booktabnavigation ">
+        <div class="booktab active" onclick="changeTab(event, 'service')">Service</div>
+        <div class="booktab" onclick="changeTab(event, 'location')">Location</div>
+        <div class="booktab" onclick="changeTab(event, 'date')">Date</div>
+        <div class="booktab" onclick="changeTab(event, 'details')">Details</div>
+        <div class="booktab" onclick="changeTab(event, 'bookingdetails')">Payment</div>
+      </div>
+
+    </div>
+
+
+    <div id="booktabContent">
+
+      <div id="service" class="active">
+        <h1 class="dateheader">Select Services</h1>
+        <div class="cardcontainer">
+        <div class="card">
+          <input class="servicecircleradio" type="radio" name="serviceType" value="Childcare" id="card1" checked>
+          <label for="card1">
+              <h5>Childcare Services</h5>
+              <img src="./img/Childcare.jpg" alt="Childcare Image">
+              <h5>Inclusions </h5>
+              <ul>
+                  <li>Cleaning Up Tasks </li>
+                  <li>Laundry and Ironing of Clothes</li>
+                  <li>Supervision of the Child </li>
+                  <li>Feeding and Preparation of Meals</li>
+                  <li>Bathing and Changing Clothing</li>
+                  <li>Assisting with their Learning and Development</li>
+                  <li>Maintaining Child's Schedule</li>
+              </ul>
+          </label>
+      </div>
+      <div class="card">
+          <input class="servicecircleradio" type="radio" name="serviceType" value="All-around" id="card2" >
+          <label for="card2">
+              <h5>All-around Services</h5>
+              <img src="./img/AllAround.jpg" alt="All-around Image">
+              <h5>Inclusions </h5>
+              <ul>
+                  <li>Housekeeping/Cleaning Services </li>
+                  <li>Laundry and Ironing</li>
+                  <li>Grocery Shopping and Errand Running</li>
+                  <li>Home Organization and Decluttering</li>
+                  <li>Meal Preparation and/or Cooking</li>
+              </ul>
+          </label>
+          </label>
+      </div>
+      <div class="card">
+          <input class="servicecircleradio" type="radio" name="serviceType" value="ElderlyCare" id="card3">
+          <label for="card3">
+              <h5>Elderly Care Services</h5>              
+              <img src="./img/Elderly.jpg" alt="Elderly Care Image">
+              <h5>Inclusions </h5>
+              <ul>
+                  <li>Health Monitoring</li>
+                  <li>Personal Care Assistance</li>
+                  <li>Medication Reminders</li>
+                  <li>Meal Preparation and Nutrition</li>
+                  <li>Emergency Response</li>
+              </ul>
+          </label>
+        </div>
+        <div class="btnprevnxt btnnexttop">
+          <button type="button" class="greennxt2" onclick="nextTab('location');scrollToTop()">Next</button>
+
+        </div>
+      </div>
+        
+    </div>
+
+
+    <div id="location">
+      <h1 class="dateheader">Select Location</h1>
+      <div class="rounded-div">
+          <p id="serveYou">Where can we serve you?</p>
+          <p class="locationText">Search Location:</p>
+          <div class="input-with-icon">
+            <input type="text" id="searchInput">
+            <button class="save-button" onclick="saveAddress(event)"></button>
+          </div>
+          <p class="addressText">Saved Address:</p>
+          <select id="addressDropdown"></select>
+          <p class="locationsubText" id="locationValidity"></p>
+          <p class="locationsubText" id="validLocations"></p>
+          <div class="btnprevnxt btnnexttop">
+            <button type="button" class="rednnxt" onclick="prevTab('service');scrollToTop()">Back</button>
+            <button type="button" class="greennxt" onclick="nextTab('date'); checkLocation();scrollToTop()">Next</button>
+          </div>
+      </div>
+      <div id="map"></div>
+    </div>
+    
+
+    <div id="date" class="content">
+      <h1 class="dateheader">Select Time</h1>
+      <div style="display: flex; justify-content: center;">
+        <div>
+            <label for="datePicker" class="label servicedatelbl" style="display: inline-block;">Service Date</label>
+            <input type="date" class="servicedateinput" id="datePicker" style="display: inline-block;">
+            <div style="text-align: center;"> <!-- Center the span -->
+              <span id="concatenatedDate" style="display: block; margin-top: 5px;"></span>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    <div class="startdatetab-container">
+      <label for="timePicker" class="label startdatepickerlbl">Start Time:</label>
+      <input type="time" class="startdatepickerinput" id="timePicker" placeholder="--:--">
+      <span id="concatenatedStartTime" style="display: block; margin-top: 5px;"></span>
+  </div>
+  
+
+
+      <div class="ratetimetab-container">
+        <fieldset style="text-align: center;">
+          <legend class="timeratelbl">Select Time Duration:</legend>
+          <div class="timeratebox">
+
+            <div class="radio-group">
+              <label><input type="radio" name="duration" value="4"> 4h</label>
+              <label><input type="radio" name="duration" value="6"> 6h</label>
+            </div>
+            <div class="radio-group">
+              <label><input type="radio" name="duration" value="8"> 8h</label>
+              <label><input type="radio" name="duration" value="10"> 10h</label>
+            </div>
+            <div class="radio-group">
+              <label><input type="radio" name="duration" value="12"> 12h</label>
+            </div>
+
+          </div>
+          <span id="concatenatedDuration"></span>
+
+        </fieldset>
+      </div>
+
+      <div class="startdatetab-container">
+        <div class="datetab-container">
+
+
+        </div>
+
+        <br>
+      </div>
+
+
+  
+      <!-- Add clickable text to generate additional inputs -->
+      <div id="additional-inputs" onclick="saveAndClearInputs()">Add/Set More Dates</div>
+  
+      <!-- Placeholder for additional inputs -->
+      <div id="additional-inputs-container"></div>
+  
+
+  
+      <script>
+        let dateconcatenate = '';
+        let timeconcatenate = '';
+        let durationconcatenate = '';
+  
+        let concatenateDate = '';
+        let concatenateStartTime = '';
+        let concatenateDuration = '';
+        
+        function formatTimeToAMPM(timeString) {
+    // Append a dummy date to the time string to make it a valid date string
+    const dummyDate = '1970-01-01 '; // Use any date, it won't affect the time part
+    const dateTimeString = dummyDate + timeString;
+    const dateTime = new Date(dateTimeString);
+
+    // Extract hours and minutes
+    let hours = dateTime.getHours();
+    let minutes = dateTime.getMinutes();
+
+    // Format hours to 12-hour format
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    // Return the formatted time string
+    return hours + ':' + minutes + ' ' + ampm;
+}
+        
+        function formatTimeToAMPM(timeString) {
+    // Append a dummy date to the time string to make it a valid date string
+    const dummyDate = '1970-01-01 '; // Use any date, it won't affect the time part
+    const dateTimeString = dummyDate + timeString;
+    const dateTime = new Date(dateTimeString);
+
+    // Extract hours and minutes
+    let hours = dateTime.getHours();
+    let minutes = dateTime.getMinutes();
+
+    // Format hours to 12-hour format
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    // Return the formatted time string
+    return hours + ':' + minutes + ' ' + ampm;
+}
+  
+        function saveAndClearInputs() {
+    // Save current input values
+    const currentDate = document.querySelector('.servicedateinput').value;
+    const currentTime = document.querySelector('.startdatepickerinput').value;
+    const currentDuration = document.querySelector('input[name="duration"]:checked').value;
+
+    // Combine date and time into a single string
+    const selectedDateTimeString = currentDate + ' ' + currentTime;
+
+    // Parse the combined date and time string
+    const selectedDateTime = new Date(selectedDateTimeString);
+    const currentDateTime = new Date();
+
+    // Check if selected date-time is before the current date-time
+    if (selectedDateTime < currentDateTime) {
+        modal.style.display = "block";
+        return; // Return if selected date-time is in the past
+    }
+
+    // Calculate the time difference in milliseconds
+    const timeDifference = selectedDateTime - currentDateTime;
+
+    // Convert milliseconds to hours
+    const timeDifferenceHours = timeDifference / (1000 * 60 * 60);
+
+    // Check if the time difference is less than or equal to 14 hours
+    if (timeDifferenceHours <= 14 && timeDifferenceHours >= 0) {
+        // Show the custom confirmation modal
+        modal.style.display = "block";
+        return; // Return after showing the modal
+    }
+    const formattedCurrentTime = formatTimeToAMPM(currentTime);
+
+    // Append saved values to spans
+    dateconcatenate += currentDate + ', ';
+    timeconcatenate += formattedCurrentTime + ', '; // Use the formatted time
+    durationconcatenate += currentDuration + ', ';
+
+    // Update the display
+    document.getElementById('concatenatedDate').textContent = dateconcatenate.slice(0, -2); // Remove last comma and space
+    document.getElementById('concatenatedStartTime').textContent = timeconcatenate.slice(0, -2);
+    document.getElementById('concatenatedDuration').textContent = durationconcatenate.slice(0, -2);
+
+    concatenateDate = dateconcatenate.slice(0, -2); // Remove last comma and space
+    concatenateStartTime = timeconcatenate.slice(0, -2);
+    concatenateDuration = durationconcatenate.slice(0, -2);
+
+    // Clear input fields for next input
+    document.querySelector('.servicedateinput').value = '';
+    document.querySelector('.startdatepickerinput').value = '';
+    document.querySelector('input[name="duration"]:checked').checked = false;
+}
+
+  
+function logBackFirstInput() {
+ // Check if any details have been added
+ if (concatenateDate !== '' && concatenateStartTime !== '' && concatenateDuration !== '') {
+    // Log the values of the first input
+    const firstDate = concatenateDate.split(',')[0].trim();
+    let firstTime = concatenateStartTime.split(',')[0].trim();
+    const firstDuration = concatenateDuration.split(',')[0].trim();
+
+    console.log("First Input Date: ", firstDate);
+    console.log("First Input Start Time: ", firstTime);
+    console.log("First Input Duration: ", firstDuration);
+
+    // Convert the AM/PM formatted time back to 24-hour format
+    firstTime = convertAMPMTo24Hour(firstTime);
+
+    // Remove the 'h' character from firstDuration
+    const firstDurationValue = firstDuration.replace('h', '');
+
+    // Set the values of the first input back into their respective input fields
+    document.querySelector('.servicedateinput').value = firstDate;
+    document.querySelector('.startdatepickerinput').value = firstTime;
+
+    // Check the radio button corresponding to the first duration value
+    const durationRadio = document.querySelector(`input[name="duration"][value="${firstDurationValue}"]`);
+    if (durationRadio) {
+      durationRadio.checked = true;
+    }
+ } else {
+    console.log("No details have been added yet.");
+ }
+}
+
+function convertAMPMTo24Hour(timeString) {
+    const timeParts = timeString.split(' ');
+    let hours = parseInt(timeParts[0].split(':')[0], 10);
+    const minutes = timeParts[0].split(':')[1];
+    const ampm = timeParts[1];
+
+    if (ampm === 'PM' && hours < 12) {
+        hours += 12;
+    } else if (ampm === 'AM' && hours === 12) {
+        hours = 0;
+    }
+
+    return `${hours.toString().padStart(2, '0')}:${minutes}`;
+}
+
+      </script>
+
+
+
+
+      <div class="btnprevnxt2 btnnexttop">
+
+        <button type="button" class="rednnxt2" onclick="prevTab('location');scrollToTop()">Back</button>
+                <button type="button" class="greennxt4" onclick="saveAndClearInputs();logBackFirstInput();nextTab('details');scrollToTop()">Next</button>
+
+      </div>
+
+    </div>
+      
+    <div id="details" class="tabcontent">
+      <!-- Childcare or Elderly service form -->
+      <div id="CEServiceForm">
+        <h1 class="dateheader"> Service Details</h1>
+        <!-- Input form for childcare or Elderly service -->
+        <div class="serviceForm">
+          <label for="CEServiceName">Name:</label>
+          <input type="text" id="CEServiceName" name="CEServiceName" required>
+        </div>
+        <div class="ageGender row">
+          <label for="CEServiceAge" class="ageLabel">Age:</label>
+          <input type="number" id="CEServiceAge" name="CEServiceAge" required>
+          <label for="gender" class="genderLabel">Gender:</label>
+          <div class="genderInput">
+              <input type="radio" id="gender" name="gender" class="radio-button" value="male">
+              <label for="male">Male</label>
+              <input type="radio" id="gender" name="gender" class="radio-button" value="female">
+              <label for="female">Female</label>
+              <input type="radio" id="gender" name="gender" class="radio-button" value="other">
+              <label for="other">Other</label>
+          </div>
+        </div>
+        <div class="serviceForm">
+          <label for="skills">Skills:</label>
+          <input type="text" id="skills" placeholder="Enter skills or qualifications you prefer in the Fairy" name="skills">
+        </div>
+        <div class="serviceForm">
+          <label for="routines">Routines:</label>
+          <input type="text" id="routines" placeholder="e.g., meal times, nap times, playtime activities" name="routines">
+        </div>
+        <div class="serviceForm">
+          <label for="likes">Likes:</label>
+          <input type="text" id="likes" placeholder="Enter child's likes and dislikes" name="likes">
+        </div>
+        <div class="serviceForm">
+          <label for="specialRequests">Special Requests:</label>
+          <textarea id="specialRequests" placeholder="Are there any special considerations or instructions we should know about" name="specialRequests" rows="4" cols="50"></textarea>
+        </div>
+      </div>
+      <!-- All around service form -->
+      <div id="allaroundForm" style="display: none;">
+        <h1 class="dateheader">All-around Service Details</h1>
+        
+          <div class="column">
+          <label for="services" class="servicesLabel">Type of Cleaning Service Required (Check all that apply):</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Regular House Cleaning">
+            <label class="form-check-label" for="inlineCheckbox1">Regular House Cleaning</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Deep Cleaning">
+            <label class="form-check-label" for="inlineCheckbox2">Deep Cleaning</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Move-in/Move-out Cleaning" value="Move-in/Move-out Cleaning">
+            <label class="form-check-label" for="inlineCheckbox3">Move-in/Move-out Cleaning</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="Post-Construction Cleaning">
+            <label class="form-check-label" for="inlineCheckbox4">Post-Construction Cleaning</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="Special Event Cleaning">
+            <label class="form-check-label" for="inlineCheckbox5">Special Event Cleaning</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="Others">
+            <label class="form-check-label" for="inlineCheckbox6">Other (please specify):</label>
+            <input type="text" id="others" placeholder="" name="skills">
+          </div>
+        </div>
+        <div class="serviceForm">
+          <label for="size">Size of the Property:</label>
+          <input type="text" id="size" placeholder="e.g. number of bedrooms, bathrooms, square footage" name="size">
+        </div>
+
+        <div class="serviceForm">
+          <label for="specificRoom">Specific Areas/Rooms to Focus On:</label>
+          <input type="text" id="specificRoom" placeholder="Enter specific area or rooms" name="specificRoom">
+        </div>
+        <div class="serviceForm">
+          <label for="preferences">Any particular cleaning products or equipment preferences:</label>
+          <input type="text" id="preferences" placeholder="Enter cleaning products or equipment preferences" name="preferences">
+        </div>
+        <div class="serviceForm">
+          <label for="valuableItems">Any delicate or valuable items requiring special care:</label>
+          <textarea id="valuableItems" placeholder="Are there any valuable items that requires special care" name="valuableItems" rows="4" cols="50"></textarea>
+        </div>
+        <div class="serviceForm">
+          <label for="avoid">Any specific cleaning tasks or areas to avoid:</label>
+          <textarea id="avoid" placeholder="Are there any specific cleaning tasks or areas we need to avoid" name="avoid" rows="4" cols="50"></textarea>
+        </div>
+        <div class="serviceForm">
+          <label for="specialRequests">Special instructions or additional information:</label>
+          <textarea id="specialRequests" placeholder="Are there any instructions or additional information" name="specialRequests" rows="4" cols="50"></textarea>
+        </div>
+        <div class="serviceForm">
+          <label for="reminders">Special reminders pertaining to booking:</label>
+          <textarea id="reminders" placeholder="Are there any special reminders for booking" name="reminders" rows="4" cols="50"></textarea>
+        </div>
+      </div>
+    
+      
+      <!-- Next and Previous buttons -->
+      <div class="btnprevnxt4 btnnexttop">
+          <button type="button" class="rednnxt2" onclick="prevTab('date');scrollToTop()">Back</button>
+          <button type="button" class="greennxt5" id="saveServiceFormDataButton">Save Details</button>
+          <button type="button" class="greennxt6" onclick="nextTabWithModal();handleBookingDetails();scrollToTop()">Next</button>
+      </div>
+    </div>
+
+
+
+    <div id="bookingdetails" class="flex justify-between mb-4 content">
+      <h1 class="dateheader">Confirm your Order</h1>
+      <h1 class="ordersummarylbl">Order Summary</h1>
+      <div class="booktablecontainer">
+        <div id="bookingDetails" class="bookingDetailstable"></div>
+      </div>
+      <div class="tacbox">
+        <input id="checkbox" type="checkbox" required>
+        <label> I agree to these <a id="termsConditions" href="#">Terms and Conditions</a> and
+          <a id="privacyandpolicy" href="#">Privacy Policy</a>
+        </label>
+      </div> 
+      <div class="btnprevnxt3 btnnexttop">
+        <button type="button" class="rednnxt3" onclick="prevTab('details');scrollToTop()">Back</button>
+        <button type="button" class="greennxt3" id="open-modal">Proceed to Payment</button> <!--edited by Vin -->
+      </div>
+      <div id="modalTermsCons" class="modalTermsCons">
+        <div class="modal-content" id="modal-body">
+          <span class="close" >&times;</span>
+          <h2>Terms and Conditions</h2>
+          <p>These terms and conditions outline the rules and regulations for the use of our company.</p>
+          <p>
+            By accessing this website we assume you accept these terms and conditions. Do not continue to use our website
+            if you do not agree to take all of the terms and conditions stated on this page.</p>
+          <p>
+            The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and
+            all Agreements: “Client”, “You” and “Your” refers to you, the person log on this website and compliant to the
+            Company's terms and conditions. “The Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our Company.
+            “Party”, “Parties”, or “Us”, refers to both the Client and ourselves. All terms refer to the offer, acceptance
+            and consideration of payment necessary to undertake the process of our assistance to the Client in the most
+            appropriate manner for the express purpose of meeting the Client's needs in respect of provision of the
+            Company's stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the
+            above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as
+            interchangeable and therefore as referring to same.
+          </p>
+          <h3>Introduction</h3>
+          <p> Welcome to My Fairee App, a platform designed to connect parents with on-call nannies. These Terms and Conditions ("Terms") govern your use of the My Fairee App and its services. By using the My Fairee App, you agree to abide by these Terms.</p>
+          <p>
+            Most interactive websites use cookies to let us retrieve the user's details for each visit. Cookies are used
+            by our website to enable the functionality of certain areas to make it easier for people visiting our website.
+            Some of our affiliate/advertising partners may also use cookies.
+          </p>
+          <h3>License</h3>
+          <p>Unless otherwise stated, My Fairee and its licensors own the intellectual property rights for all material on our
+            website. All intellectual property rights are reserved. All content, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software is the property of My Fairee App or its content suppliers and protected by international copyright laws. </p>
+          <p>You must not:</p>
+          <ul>
+            <li>Republish material from our website</li>
+            <li>Sell, rent or sub-license material from our website</li>
+            <li>Reproduce, duplicate or copy material from our website</li>
+            <li>Redistribute content from our website</li>
+          </ul>
+          <h3>Acceptance of Terms</h3>
+          <p>By using the My Fairee App, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree with these Terms, please do not use the My Fairee App.</p>
+          <h3>User Accounts</h3>
+          <p>To use the My Fairee App, you must create an account. You are responsible for all activities that occur under your account. You must provide accurate and complete information during the registration process.</p>
+          <h3> Services and Fees</h3>
+          <p>The My Fairee App provides on-call nanny services to parents seeking reliable and professional. The services include childcare, elderly care, and all-around household. The specific services provided will be detailed in the booking agreement between the parent and the nanny.         </p>
+          <p>The fee for the services provided by My Fairee App is computed as follows:</p>
+          <ul>
+            <li>Fixed Rate: Nannies are compensated with a fixed rate for the duration of their engagement. This rate is determined by the nanny's qualifications, experience, and the specific needs of the child. The fixed rate will be agreed upon in the booking agreement and will cover the nanny's time and services for the agreed-upon period.</li>
+            <li>Additional Fees: There may be additional fees for specific services or activities, such as transportation fee or specialized care needs. These fees will be detailed in the booking agreement.</li>
+          </ul>
+          <h3>User Conduct</h3>
+          <p>You agree to use the My Fairee App in a manner that complies with all applicable laws and regulations. You must not engage in any illegal activities or use the My Fairee App for any illegal purposes.</p>
+          <h3> Privacy and Security</h3>
+          <p>We are committed to protecting your personal information. Please review our Privacy Policy for more information on how we collect, use, and protect your personal information.</p>
+          <h3>Limitation of Liability</h3>
+          <p>In no event shall My Fairee App or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the My Fairee App, even if My Fairee App or a My Fairee App authorized representative has been notified orally or in writing of the possibility of such damage.</p>
+          <h3>Termination</h3>
+          <p> My Fairee App reserves the right to terminate your access to the My Fairee App, without cause or notice, which may result in the forfeiture and destruction of all information associated with your account.</p>
+          <h3> Changes to Terms</h3>
+          <p>My Fairee App reserves the right to update or change the Terms at any time. We will notify you of any changes by posting the new Terms on this page.</p>
+          <p id="last">
+            As long as the website and the information and services on the website are provided free of charge, we will
+            not be liable for any loss or damage of any nature.
+          </p>     
+          <button onclick="agree1()" id="agreeButton" class="doneBtn">Agree</button>      
+        </div>
+      </div>
+      <div id="modalPrivacy" class="modalPrivacy">
+        <div class="modal-content" id="modal-body">
+          <span class="close2" onclick="closeModal2()">&times;</span>
+          <h2>Privacy and Policy</h2>
+          <h3>Privacy Statement</h3>
+          <p> The My Fairee  ("we," "us," or "our") collects, processes and stores personal data about you when you avail of its services provided that you have given your express consent. This privacy policy has been prepared to better serve any person who avails of the Services of My Fairee to inform him/her of how their personal data are collected and used. Please read our privacy policy carefully to get a clear understanding of how My Fairee collects, uses, protects or handles your personal data in accordance with Republic Act No. 10173, or the Data Privacy Act of 2012, and its Implementing Rules and Regulations (collectively, the “Data Privacy Act”).</p>
+          <h3>Collection of Personal Data</h3>
+          <p><strong>Personal Information:</strong>When you sign up for an account, we collect your name, email address and phone number. For nanny’s account verification, we collect your name, gender, email address, home address , date of birth, place of birth, civil status, height, religion, and ID.  </p> 
+          <p> <strong>Nanny Preferences:</strong> When you request a nanny, we collect information about your preferences, such as nanny qualifications, availability, and language skills.</p>
+          <p><strong>Location Information:</strong>We collect your location when you use the App to connect you with nannies in your area. </p>
+          <p><strong>Usage Information: </strong>We collect information about how you use the App, including your interactions with nannies and the features you use.</p>
+          <p><strong>Chat Information:</strong> We collect information from chats between nannies and parents for monitoring and quality assurance purposes. </p>
+          <h3>Use and Processing of Personal Data</h3>
+          <p><strong>Provide Services:</strong> We use your information to provide on-call nanny services, including matching you with nannies based on your preferences. </p>
+          <p> <strong>Improve Services:</strong> We use your information to improve our services, such as by analyzing usage patterns and user feedback.</p>
+          <p><strong>Communicate with You:</strong> We use your information to communicate with you about your bookings, account, and promotions.</p>
+          <p><strong>Legal Compliance:</strong> We may use your information to comply with legal obligations, such as responding to legal requests and preventing fraud.</p>
+          <h3>Acceptance of Terms</h3>
+          <p>By using the My Fairee App, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree with these Terms, please do not use the My Fairee App.</p>
+          <h3>Sharing of Personal Data</h3>
+          <p><strong>Nannies:</strong> We share your information with nannies to facilitate bookings and provide services.</p>
+          <p><strong>Service Providers:</strong> We share your information with service providers who help us operate the App, such as payment processors and cloud storage providers.</p>
+          <p><strong> Legal Compliance: </strong>We may share your information to comply with legal obligations, such as responding to legal requests and preventing fraud.</p>
+          <h3> Storage and Protection of Personal Data</h3>
+          <p>My Fairee has instituted policies and procedures which intend to protect personal data which it has collected and continues to collect. These include securing any document containing personal data, requiring the execution of non-disclosure agreements by its employees.</p>
+          <p>My Fairee’ websites are scanned on a regular basis for security holes and known vulnerabilities in order to make your visit to said website as safe as possible. Your personal data is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the personal data confidential. In addition, all sensitive/credit information you supply is encrypted. While there will always be a risk of unauthorized disclosure of personal data, My Fairee believes that the foregoing safeguards are sufficient to prevent the occurrence of such unauthorized disclosure and is committed to updating and improving such safeguards in order to protect your personal data in compliance with the Data Privacy Act.</p>
+          <h3>Your Rights under the Data Privacy Act </h3>
+          <p>As a data subject, you have the following rights under the Data Privacy Act:</p>
+          <ul>
+            <li>You have the right to be informed of the collection and processing of your personal data, the purpose for which they will be processed, among others. Thus, you are required to read this privacy policy before giving your consent to the collection and processing of your personal data. If you have questions, please do not hesitate to ask us questions or clarifications. </li>
+            <li>You have the right to object to the processing of your personal data. You will be given an option or opportunity to withhold your consent to the processing of your personal data. </li>
+            <li>You have the right to rectify or correct any inaccuracy or error in your personal data.</li>
+            <li>You have the right to suspend, withdraw or order the blocking, removal or destruction of your personal data in accordance with the requirements of the Data Privacy Act.</li>
+            <li>You have the right to obtain a copy of your data in an electronic or structured format if the same is processed by electronic means and in a structured and commonly used format. </li>
+            <li>You have the right to be indemnified if you incur damages due to inaccurate, incomplete, outdated, false, unlawfully obtained or unauthorized use of your personal data            </li>
+          </ul>
+          <h3> Changes to the Privacy Policy</h3>
+          <p> My Fairee may change this Privacy Policy from time to time. If My Fairee makes any significant change in the collection, use, and protection of personal data, My Fairee will provide you notice through the Services or by some other means, such as email. It is encouraged that you periodically review the Privacy Policy in the My Fairee website for the latest information.</p>
+          <h3>Contacting Us </h3>
+          <p>If there are any questions regarding this privacy policy, you may contact our Data Protection Officer with the following contact details: 
+           <p>Phone Number: +639171588278</p>
+           <p>Email Address: myfaireeph@gmail.com</p>
+          <button onclick="agree2()" id="agreeButton2" class="doneBtn" >Agree</button>      
+        </div>
+      </div>
+    </div>
+      <!--Added by Vin -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span id="close-modal" class="close">&times;</span>
+          <h1 class="payheader" style="margin: 30px 0px;">Mode of Payment</h1>
+          <div class="tab-container servicecontainer">
+            <div class="qr-option">
+              <label>
+                GCASH
+              </label>
+              <img src="./img/GCASH.png">
+              <h5>CA*O FE**E P.<br>
+                09171588278</h5>
+            </div>
+  
+            <div class="qr-option">
+              <label>
+                 BANK
+              </label>
+              <img  src="./img/Union_Bank.png">
+              <h5>Union Bank<br>0005 6003 8331</h5>
+            </div>
+        </div>
+        
+      <button type="button" class="doneBtn" id="doneBtn">Done</button>
+      </div>
+          <!-- Modal 2 -->
+      <div id="myModal2" class="modal2">
+        <div class="modal-content2">
+          <span id="close-modal2" class="close">&times;</span>
+          <h1 class="payheader" style="margin: 20px 0px; font-size:30px;">Your Booking Request has been Submitted</h1>
+          <h2>Kindly upload the screenshot of the payment once completed.</h2>
+        </div>
+      </div> <!--Added by Vin -->
+    </div>
+
+  </form>
+
+  <!-- HTML for the custom modal dialog -->
+<div id="confirmationModal" class="confirmModal">
+  <div class="confirmModal-content">
+    <span id="close" class="close">&times;</span>
+    <p id="confirmMessage">Your booking slot is too soon. Please choose a later time. Need it urgently? Reach out to us.</p>
+    <div class="confirmBtn-container">
+      <button id="confirmButton">Contact Us</button>
+      <button id="cancelButton">OK</button>
+    </div>
+    
+  </div>
+</div>
+
+<div id="myalertmodal" class="alertmodal">
+  <div class="alertmodal-content">
+    <div class="alertmodal-header">
+      <div class="title">Alert</div>
+      <div class="close-alertbtn" id="closealertmodalalertbtn">&#10006;</div> <!-- Close button -->
+    </div>
+    <div class="alertmodal-body">
+      <p id="alertText"></p>
+    </div>
+    <div class="alertmodal-footer">
+      <button id="closealertmodal" class="alertbtn">
+        OK
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script><!--Added by Vin -->
+  <script src="./JS/qr.js"></script><!--Added by Vin -->
+  <script>
+    // Get the current page URL
+var currentPageUrl = window.location.href;
+
+// Get all the navigation links
+var navLinks = document.querySelectorAll('.hideOnMobile a');
+
+// Loop through each navigation link
+navLinks.forEach(function(link) {
+// Check if the href attribute of the link matches the current page URL
+if (link.href === currentPageUrl) {
+// Add a class to mark it as the current page
+link.classList.add('current-page');
+}
+});
+</script>
+  <script>
+
+function openAlertModal(message) {
+    document.getElementById("alertText").textContent = message;
+    document.getElementById("myalertmodal").style.display = "block";
+  }
+  document.getElementById("closealertmodal").addEventListener("click", function() {
+    document.getElementById("myalertmodal").style.display = "none";
+  });
+  document.getElementById("closealertmodalalertbtn").addEventListener("click", function() {
+    document.getElementById("myalertmodal").style.display = "none";
+  });
+
+//tryy
+var modal = document.getElementById("modalTermsCons");
+var modal2 = document.getElementById("modalPrivacy");
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Open the modal when the Privacy Policy link is clicked
+    document.getElementById('privacyandpolicy').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default action of the link
+        document.getElementById('modalPrivacy').style.display = 'block'; // Show the modal
+    });
+});
+function closeModal2() {
+    document.getElementById('modalPrivacy').style.display = 'none';
+}
+function agree2() {
+    document.getElementById('modalPrivacy').style.display = 'none';
+}
+function openModal() {
+    var modal = document.getElementById('modalTermsCons');
+    modal.style.display = "block";
+    checkbox.checked = false;
+}    
+function agree1() {
+    document.getElementById('modalTermsCons').style.display = 'none';
+}
+function nextTabWithModal() {
+    nextTab('bookingdetails'); // Call your existing nextTab function to switch to the next tab
+    openModal(); // Call a function to open the modal
+}
+  </script>
+
+  <script>
+// Get the modal
+ var termsModal = document.getElementById("modalTermsCons");
+
+// Get the modal
+var termsModal = document.getElementById("modalTermsCons");
+// Get the link to the Terms and Conditions
+var termsLink = document.getElementById("termsConditions");
+var agreeButton = document.getElementById("agreeButton");
+
+// When the user clicks on the Terms and Conditions link, open the modal
+termsLink.addEventListener('click', function() {
+  termsModal.style.display = "block";
+});
+
+// Get the <span> element that closes the modal
+var closeBtn = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+closeBtn.addEventListener('click', function() {
+  termsModal.style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    termsModal.style.display = "none";
+  }
+}); 
+document.addEventListener('DOMContentLoaded', function() {
+            // Select the checkbox and submit button
+            var checkbox = document.getElementById('checkbox');
+            var submitBtn = document.getElementById('open-modal');
+        
+            // Initially disable the submit button
+            submitBtn.disabled = true;
+        
+            // Listen for changes to the checkbox
+            checkbox.addEventListener('change', function() {
+                // If the checkbox is checked, enable the submit button
+                // Otherwise, disable it
+                submitBtn.disabled = !this.checked;
+            });
+        });
+  function changeTab(event, tabName) {
+  // Hide all tab content
+  const tabContent = document.getElementById('booktabContent').children;
+  for (let i = 0; i < tabContent.length; i++) {
+    tabContent[i].classList.remove('active');
+  }
+
+  // Remove active class from all tabs
+  const tabs = document.getElementsByClassName('booktab');
+  for (let i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove('active');
+  }
+
+  // Show the clicked tab content and mark the clicked tab as active
+  document.getElementById(tabName).classList.add('active');
+  event.currentTarget.classList.add('active');
+
+  // Show or hide the booktabnavigation based on the active tab
+  const booktabnavigation = document.getElementById('booktabnavigation');
+  if (tabName !== 'location') {
+    booktabnavigation.classList.remove('hide');
+    document.body.style.overflow = 'visible'; // Show overflow on other tabs
+  } else {
+    booktabnavigation.classList.add('hide');
+    document.body.style.overflow = 'hidden'; // Hide overflow on location tab
+  }
+}
+
+function nextTab(nextTabName) {
+  const locationValidity = document.getElementById('locationValidity');
+  const locationInput = document.getElementById('searchInput').value.toLowerCase();
+  const validLocations = ['manila', 'rizal', 'bulacan', 'cavite', 'laguna'];
+
+  // Check if location is valid
+  if (validLocations.some(location => locationInput.includes(location))) {
+    const currentTab = document.querySelector('#booktabContent > div.active');
+    const nextTab = document.getElementById(nextTabName);
+
+    currentTab.classList.remove('active');
+    nextTab.classList.add('active');
+
+    // Update the active tab button
+    const nextTabButton = document.querySelector('.booktab.active + .booktab');
+    if (nextTabButton) {
+      document.querySelector('.booktab.active').classList.remove('active');
+      nextTabButton.classList.add('active');
+    }
+
+    // Show or hide the booktabnavigation based on the active tab
+    const booktabnavigation = document.getElementById('booktabnavigation');
+    if (nextTabName !== 'location') {
+      booktabnavigation.classList.remove('hide');
+      document.body.style.overflow = 'visible'; // Show overflow on other tabs
+    } else {
+      booktabnavigation.classList.add('hide');
+      document.body.style.overflow = 'hidden'; // Hide overflow on location tab
+    }
+  } 
+}
+
+
+    function prevTab(prevTabName) {
+      const currentTab = document.querySelector('#booktabContent > div.active');
+      const prevTab = document.getElementById(prevTabName);
+
+      currentTab.classList.remove('active');
+      prevTab.classList.add('active');
+
+      // Update the active tab button
+      const tabs = document.getElementsByClassName('booktab');
+      for (let i = 0; i < tabs.length; i++) {
+        if (tabs[i].getAttribute('onclick').includes(prevTabName)) {
+          document.querySelector('.booktab.active').classList.remove('active');
+          tabs[i].classList.add('active');
+          break;
+        }
+      }
+
+      // Show or hide the booktabnavigation based on the active tab
+      const booktabnavigation = document.getElementById('booktabnavigation');
+      if (prevTabName !== 'location') {
+        booktabnavigation.classList.remove('hide');
+      } else {
+        booktabnavigation.classList.add('hide');
+      }
+    }
+  </script>
+  </script>
+
+
+
+  <script>
+  function checkLocation() {
+    const locationInput = document.getElementById('searchInput').value.toLowerCase();
+    const locationValidity = document.getElementById('locationValidity');
+    const validLocations = ['manila', 'rizal', 'bulacan', 'cavite', 'laguna'];
+    const validLocationsOutput = [];
+
+    if (validLocations.some(location => locationInput.includes(location))) {
+        locationValidity.textContent = 'Location is valid.';
+        validLocations.forEach(location => {
+            if (locationInput.includes(location)) {
+                validLocationsOutput.push(location);
+            }
+        });
+        document.getElementById('validLocations').textContent = 'Valid locations: ' + validLocationsOutput.join(', ');
+    } else {
+        // Create the text node
+        var textNode = document.createTextNode('We only cater our service at Manila, Rizal, Bulacan, Cavite, and Laguna.');
+
+        // Create the strong element
+        var strongElement = document.createElement('strong');
+        strongElement.textContent = 'If Your Location is within the Service Area kindly use the Search Location';
+
+        // Append the elements to locationValidity
+        locationValidity.appendChild(textNode);
+        locationValidity.appendChild(document.createElement('br'));
+        locationValidity.appendChild(strongElement);
+    }
+}
+    
+    function initMap() {
+      // This function is defined in location.js
+      initMap();
+    }
+
+    function loadGoogleMapsScript() {
+      const script = document.createElement("script");
+      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBd0aHhlzvmQL7JWqxDw8iyXY1t7U2Gkt0&libraries=places&callback=initMap";
+      script.defer = true;
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    window.onload = loadGoogleMapsScript;
+
+
+    // location.js
+    let map;
+    let searchInput;
+    let nextButton;
+
+    function initMap() {
+
+      // Style the map
+    const mapStyles = [
+      {
+      featureType: 'road', elementType: 'geometry', stylers: [{ color: '#eddde3' }] // Change road color 
+      },
+      {
+      featureType: 'water', elementType: 'geometry', stylers: [{ color: '#A2B7EC' }] // Change water color 
+      },
+      {
+      featureType: 'landscape', elementType: 'geometry', stylers: [{ color: '#f6e7f1' }] // Change land color
+      },
+      {
+      featureType: 'transit', elementType: 'geometry', stylers: [{ visibility: 'off' }] // Turn off visibility for transit features
+      },
+      {
+      "featureType": "all",
+      "elementType": "labels.text.fill",
+      "stylers": [{ "color": "#000000" }]
+      }
+      // Add more styles for other map features if needed
+    ];
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 14.6042, lng: 120.9822 },
+        zoom: 11,
+        styles: mapStyles,
+        zoomControl: false,
+        scaleControl: false,
+        mapTypeControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+        disableDefaultUI: false,
+        scrollwheel: false,
+        draggable: false,
+        keyboardShortcuts: false,
+        disableDoubleClickZoom: false,
+      });
+      searchInput = document.getElementById("searchInput");
+      nextButton = document.getElementById("nextButton");
+
+      const searchBox = new google.maps.places.SearchBox(searchInput);
+      map.addListener("bounds_changed", () => {
+        searchBox.setBounds(map.getBounds());
+      });
+
+      let markers = [];
+      searchBox.addListener("places_changed", () => {
+        const places = searchBox.getPlaces();
+
+        if (places.length === 0) {
+          return;
+        }
+
+        markers.forEach((marker) => {
+          marker.setMap(null);
+        });
+        markers = [];
+
+        const bounds = new google.maps.LatLngBounds();
+        places.forEach((place) => {
+          if (!place.geometry || !place.geometry.location) {
+            console.log("Returned place contains no geometry");
+            return;
+          }
+          const marker = new google.maps.Marker({
+            map,
+            title: place.name,
+            position: place.geometry.location,
+          });
+          markers.push(marker);
+
+          if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+      });
+
+    }
+
+    
+  </script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+  <script src="./JS/booking.js"></script>
+    
+<footer class="footer-distributed">
+
+  <div class="footer-left">     
+    <p class="footer-company-about">
+      <span>About the Company</span>
+      My Fairee is an on-call nanny service to provide exceptional childcare experiences and uplift Filipino mothers. Our commitment is to ensure your child's safety and happiness, allowing you to focus on your priorities with ease. 
+    </p>
+    <div class="footer-icons">
+      <a href="https://www.facebook.com/myfairee"><i class="fa fa-facebook"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-center">
+    <p class="footer-links">
+      <a href="./booking.html">Book Now</a>
+      <a href="./userprofile.html">User Profile</a>
+      <a href="./bookinghistory.html">Booking History</a>		
+      <a href="./contactus.html">Contact Us</a>	
+    </p>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+639171588278</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p>myfaireeph@gmail.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+    <div id="newsletter-social">  
+      <div id="newsletter">
+      <h2 class="center">Be Updated!</h2>
+      <p class="deals">Be the first to hear about our latest services and special deals.</p>
+      <input type="text" placeholder="Enter email address">
+      <input type="submit" value="Subscribe">
+  </div>  
+</div>  
+
+  </div>
+</footer>
+</body>
+
+</html>

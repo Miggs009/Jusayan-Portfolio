@@ -1,0 +1,14 @@
+Accueillir
+Nom
+Adresse
+Numéro de contact
+Date d'anniversaire
+Le genre
+État civil
+Homme
+Femelle
+Seul
+Marié
+Veuve
+Thème
+Langue

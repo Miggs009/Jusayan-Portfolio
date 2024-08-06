@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="./CSS/profile.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="./booking.html">Book Now</a></li>
+      <li><a href="./userprofile.html">User Profile</a></li>
+      <li><a href="./bookinghistory.html">Booking History</a></li>
+      <li><a href="./contactus.html">Contact Us</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+    <ul>
+      <li> <img src="./img/logoB.png" alt="Logo" class="logoB"></li>
+      <li> <img src="./img/logo.png" alt="Logo" class="logo"></li>
+      <li class="hideOnMobile"><a href="./booking.html">Book Now</a></li>
+      <li class="hideOnMobile"><a href="./userprofile.html">User Profile</a></li>
+      <li class="hideOnMobile"><a href="./bookinghistory.html">Booking History</a></li>
+      <li class="hideOnMobile"><a href="./contactus.html">Contact Us</a></li>
+      <li class="hideOnMobile"><a href="#" onclick="logout()">Logout</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+  <div>
+
+    <div class="container content">
+      <div class="row">
+        <!-- Display Profile Data -->
+        <div class="column">
+          <div id="userData">
+            <h1></h1>
+            <h1></h1>
+            <div class="profile-card">
+              <div class="profile-header">
+                <h2 class="profile-name" id="profileName"></h2>
+              </div>
+              <div class="profile-details">
+                <p><strong>Email: </strong> <span id="profileEmail"></span></p>
+                <p><strong>Addresses: </strong></p>
+                <ul id="profileAddresses"></ul>
+                <p><strong>Phone Number: </strong> <span id="profilePhoneNumber"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column col-s-6 col-6">          
+          <form id="editProfileForm"> 
+            <h3>Edit Profile</h3>
+            <div class="input-box">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter full name" required />
+            </div>
+            <div class="input-box" id="addressFields">
+              <!-- Address fields will be dynamically added here -->
+            </div>
+            <button id="addAddressBtn">Add Another Address</button>
+            <div class="input-box">
+              <label for="phone_no">Phone Number</label>
+              <input type="text" id="phone_no" name="phone_no" placeholder="Enter phone number" required />
+            </div>
+            <div class="buts">
+              <button id="save" type="submit">Save Changes</button>
+              <button id="deleteAccountBtn">Delete Account</button>
+              <button id="cancelDeleteBtn" style="display: none;">Cancel Delete</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore-compat.js"></script>
+  <script src="./JS/userprofile.js"></script>
+  
+<footer class="footer-distributed">
+
+  <div class="footer-left">     
+    <p class="footer-company-about">
+      <span>About the Company</span>
+      My Fairee is an on-call nanny service to provide exceptional childcare experiences and uplift Filipino mothers. Our commitment is to ensure your child's safety and happiness, allowing you to focus on your priorities with ease. 
+    </p>
+    <div class="footer-icons">
+      <a href="https://www.facebook.com/myfairee"><i class="fa fa-facebook"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-center">
+    <p class="footer-links">
+      <a href="./booking.html">Book Now</a>
+      <a href="./userprofile.html">User Profile</a>
+      <a href="./bookinghistory.html">Booking History</a>		
+      <a href="./contactus.html">Contact Us</a>	
+    </p>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+639171588278</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p>myfaireeph@gmail.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+    <div id="newsletter-social">  
+      <div id="newsletter">
+      <h2 class="center">Be Updated!</h2>
+      <p class="deals">Be the first to hear about our latest services and special deals.</p>
+      <input type="text" placeholder="Enter email address">
+      <input type="submit" value="Subscribe">
+  </div>  
+</div>  
+
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,675 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fcf9f5;
+  zoom: 80%;
+  overflow: auto;
+}
+.current-page {
+  background-color: #f0f0f0;
+  border-radius: 50px;
+}
+.bookmenu {
+  background-color: #C5BEE7;
+  text-align: left;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 80px;
+  padding-right: 50px;
+  flex-direction: row;
+  position: fixed; /* Ensure bookmenu stays fixed */
+  top: 0; /* Stick it to the top */
+  width: 100%; /* Ensure it spans the entire width */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+#profileAddresses {
+  margin-left: 15px;
+}
+
+.profile-box {
+  border: 1px solid transparent;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px; /* Add margin to separate from bookmenu */
+  margin-top: 50%;
+}
+
+#userData header {
+  margin-top: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+#editProfileForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#editProfileForm .input-box {
+  margin: 10px 10px;
+
+}
+.input-box label {
+  color: #70437f;
+  font-weight: bold;
+}
+#editProfileForm :where(.input-box input, .select-box) {
+position: relative;
+height: 40px;
+width: 100%;
+outline: none;
+font-size: 1rem;
+color: #707070;
+margin-top: 8px;
+border: 3px solid #aaa8a8;
+border-radius: 6px;
+display: flex;
+flex-direction: center;
+align-items: left;
+}
+.input-box input:focus {
+box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+input[type=text]:focus {
+background-color: #e5c8e5;
+}
+#editProfileForm :where(.gender-option, .gender) {
+display: flex;
+align-items: center;
+column-gap: 50px;
+flex-wrap: wrap;
+}
+
+#editProfileForm :where(.gender input, .gender label) {
+cursor: pointer;
+}
+
+.address :where(input, .select-box) {
+margin-top: 15px;
+}
+.select-box select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
+}
+#editProfileForm button {
+  height: 55px;
+  width: 200px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 30px;
+  margin-left:10px;
+}
+#addAddressBtn{
+  margin-bottom:10px;
+}
+#save, #deleteAccountBtn{
+  margin: 20px 0px; 
+}
+.buts{
+  margin-top:10px;
+  margin-left:150px;
+  padding-bottom:20px
+}
+#save{
+background: #228B22;
+}
+#addAddressBtn{
+background: #228B22;
+}
+#addAddressBtn:hover{
+background: #355E3B;
+}
+#save:hover {
+background: #355E3B;
+}
+#deleteAccountBtn{
+background: #c0432f;
+}
+#deleteAccountBtn:hover{
+background: #893325;
+}
+#cancelDeleteBtn{
+  background: #04034b;
+}
+#cancelDeleteBtn:hover{
+  background: #221e52;
+}
+.menu-button{
+  display: none;
+}
+
+
+nav{
+  background-color: #CCCCFF;
+  height: 70px;
+}
+nav ul{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  padding-top:10px;
+  padding-right:20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav img{
+ margin-top:-3px;
+ width:200px;
+ height:50px;
+}
+nav li{
+  height: 50px;
+}
+nav a{
+  font-size: 20px;
+  height: 100%;
+  padding: 0 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+nav a:hover{
+  background-color: #f0f0f0;
+  border-radius: 50px;
+}
+nav li:first-child{
+  margin-right: auto;
+}
+.sidebar{
+  position: fixed;
+  top: 0; 
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(215, 210, 210, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index:9999;
+}
+.sidebar li{
+  width: 100%;
+}
+.sidebar a{
+  width: 100%;
+}
+.sidebar a:hover{
+  background:#C5BEE7;
+  border-radius: 0px;
+}
+#menuIcon {
+    width: 40px;
+    height: 40px;
+}
+.logoB{
+  display: block;
+  width: 220px;
+  float: left;
+}
+.logo{
+  display: none;
+  max-width: 50px;
+  max-height: 80px;
+  margin-right: 300px;
+}
+/*Responsive*/
+@media (max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  .menu-button {
+    display: block; /* Ensure the menu button is displayed at this screen width */
+  }
+
+  .sidebar {
+    display: none; /* Hide the sidebar by default on smaller screens */
+  }
+  .modal-content{
+    width: 30%;
+  }
+  
+}
+
+@media(max-width: 400px){
+  .sidebar{
+    width: 105%;
+  }
+  .logoB{
+    display: none;
+    margin-right: auto;
+  }
+  .logo {
+    display: flex;
+  }
+}
+@media screen and (max-width: 500px) {
+#editProfileForm .column {
+  flex-wrap: wrap;
+}
+#editProfileForm :where(.gender-option, .gender) {
+  row-gap: 15px;
+}
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin-top: 5% !important;
+  margin-bottom: .5rem;
+  /* color: #592986; */
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--bs-heading-color);
+}
+
+h3{
+  position: static;
+  padding-left:10px;
+  padding-top:30px;
+  text-align: left;
+  color:#592986 !important;
+  font-size: 25px;
+}
+h1{
+  justify-content: center;
+  position: static;
+  padding-top:40px;
+  text-align: center;
+  color:#592986;
+  font-size: 25px;
+}
+.delete-icon{
+  margin-top: 10px;
+  /* float: right; */
+  margin-left: 600px;
+}
+#addAddressBtn{
+  margin-top: -20px;
+}
+.profile-header{
+  display: block;
+  flex-direction: row;
+  font-size:20px;
+  margin-left: 30%;
+  margin-top: 20%;
+  margin-bottom: 5%;
+}
+.profile-details p{
+  display: block;
+  flex-direction: row;
+  font-size: 15px;
+  margin-left:10%;
+}
+.column {
+  float: left;
+  width: 50%;
+  flex: 1;
+}
+
+
+/* Clear floats after the columns */
+.row::after {
+content: "";
+display: table;
+background-color: #fcf9f5;
+clear: both;
+}
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 760px) {
+  /* Adjust styles for smaller screens if necessary */
+  h3, h1 {
+     /* Example: Adjust padding or font size for smaller screens */
+     padding-left: 5px;
+     padding-top: 20px;
+     padding-bottom: 20px;
+     font-size: 20px;
+  }
+  .bookmenu {
+    flex-direction: row; /* Stack items vertically on smaller screens */
+    padding-left: 20px;
+    padding-right: 20px;
+ }
+ .bookmenu img {
+    width: 100%; /* Make images take full width on smaller screens */
+}
+ }
+ 
+ /* Example for a table to be responsive */
+ @media screen and (max-width: 760px) {
+  .table-container {
+     overflow-x: auto;
+  }
+  .delete-icon {
+    margin-top: 10px;
+    margin-left: 280px;
+}
+ }
+
+ /* Define the display for smaller screens */
+@media screen and (max-width: 760px) {
+  .column {
+    width: 100% !important; /* Make each column take full width on smaller screens */
+    margin-bottom: 20px; /* Add space between columns */
+  }
+  button#editProfileBtn {
+    margin-left: 25%;
+  }
+}
+/* Define the display for smaller screens */
+@media screen and (max-width: 760px) { 
+  .input-box input[type="text"] {
+    margin: 10px 0; /* Center the input boxes */
+    width: 300px !important;
+  }
+
+  #editProfileForm button {
+    height: 55px !important;
+    width: 200px !important;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.buts {
+  margin-top: 10px;
+  margin-left: 50px !important;
+  padding-bottom: 20px;
+}
+}/* Footer CSS */
+.content {
+  min-height: calc(100vh - 130px);
+}
+.footer-distributed{
+  position: relative;
+  bottom: 0;
+  font-family: Open Sans;
+background:#CCCCFF ;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+width: 100%;
+text-align: left;
+font: bold 16px sans-serif;
+padding: 30px 50px;
+  margin-top:30px;
+  margin-bottom: 0px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+display: inline-block;
+vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+color:  #ffffff;
+font: normal 36px 'Open Sans', cursive;
+margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+color:  #ffffff;
+margin: 20px 0 12px;
+padding: 0;
+}
+
+.footer-distributed .footer-links a{
+display:inline-block;
+line-height: 1.8;
+  font-weight:400;
+text-decoration: none;
+color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+color:  white;
+font-size: 14px;
+font-weight: normal;
+margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+width: 35%;
+}
+
+.footer-distributed .footer-center i{
+background-color:  #2b2d2e;
+color: #ffffff;
+font-size: 25px;
+width: 38px;
+height: 38px;
+border-radius: 50%;
+text-align: center;
+line-height: 42px;
+margin: 10px 15px;
+vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+font-size: 17px;
+line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+display: inline-block;
+color: #2d3133;
+  font-weight:400;
+vertical-align: middle;
+margin:0;
+}
+
+.footer-distributed .footer-center p span{
+display:block;
+font-weight: normal;
+font-size:14px;
+line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+color:  #5D0177;
+text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-distributed .footer-links a:after {
+content: "|";
+font-weight:300;
+font-size: 20px;
+margin-left: 5px;
+color: #fff;
+display: inline-block;
+padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+line-height: 20px;
+color:  rgb(58, 56, 56);
+font-size: 13px;
+font-weight: normal;
+margin: 0;
+  width: 70%;
+}
+
+.footer-distributed .footer-company-about span{
+display: block;
+color:  #5D0177;
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+.center{
+  color: #5D0177;
+}
+.footer-distributed .footer-icons{
+margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+display: inline-block;
+width: 35px;
+height: 35px;
+cursor: pointer;
+background-color:  #2d3133;
+border-radius: 2px;
+font-size: 20px;
+color: #ffffff;
+text-align: center;
+line-height: 35px;
+margin-right: 3px;
+margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+
+.footer-distributed{
+  font: bold 14px sans-serif;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.footer-distributed .footer-center i{
+  margin-left: 0;
+}
+  .footer-links{
+      width:70%;
+  }
+
+}
+
+#newsletter-social {
+  margin: 0 auto;
+  text-align: left;
+}
+    
+/* Newsletter Styling */ 
+#newsletter {
+  text-align: left;
+  display: inline-block;
+}
+
+p.deals {
+  font-size: 13px;
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-weight: 500; 
+  text-align: center;
+  margin:20px 0px 10px 0px; 
+  color:rgb(49, 48, 48);
+}
+
+input[type=text] {
+    padding: 15px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px #D9D6D6;
+    background-color: #F2F2F2;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 500;
+}
+input[type=button], input[type=submit], input[type=reset] {
+
+    background-color: #0677FF;
+    border: 2px;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    margin: 20px 0px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 900;
+}

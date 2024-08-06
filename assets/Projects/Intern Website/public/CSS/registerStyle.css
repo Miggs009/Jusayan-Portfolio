@@ -1,0 +1,248 @@
+/* Universal Reset */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../img/bg1.jpg);
+    background-size: cover;
+    background-position: center top;
+    overflow: hidden;
+}
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 20px;
+    background: #CCCCFF;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+/* Logo Styles */
+.logo img {
+    background-image: url(../img/logoB.png);
+    width: 200px;
+    height: auto;
+}
+
+/* Menu Styles */
+.menu img {
+    width: 25px;
+    height: auto;
+}
+
+/* Container Styles */
+.Container {
+    position: relative;
+    margin-top: 80px; /* Adjust top margin to accommodate header */
+    max-width: 90%; /* Adjust maximum width for responsiveness */
+    padding: 40px;
+    border-radius: 10px;
+    overflow: auto;
+    background: rgba(251, 245, 236, 0.81);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+    border: 1px solid rgba(251, 245, 236, 0.42);
+    z-index: 2;
+}
+
+/* Styles for the custom scrollbar */
+.Container::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+/* Track */
+.Container::-webkit-scrollbar-track {
+    background: transparent; /* Color of the scrollbar track */
+}
+
+/* Handle */
+.Container::-webkit-scrollbar-thumb {
+    background: #592986; /* Color of the scrollbar handle */
+    border-radius: 10px; /* Roundness of the scrollbar handle */
+}
+
+/* Handle on hover */
+.Container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar handle when hovered */
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 26px;
+    font-weight: bold !important;
+    text-align: left !important;
+    color: #592986 !important;
+    padding-bottom: 20px;
+    border-bottom: 1px solid silver;
+}
+
+/* Input Box Styles */
+.input-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.input-box label {
+    width: 95%;
+    color: #592986;
+}
+
+
+.input-box input {
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;  
+}
+
+.input-box input:is(:focus,:valid) {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* Button Styles */
+.button-container {
+    margin: 15px 0;
+}
+
+.button-container button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 17px;
+    font-style: bold;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #592986;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button-container button:active {
+    transition: 0.3s;
+    background-color: #1a061f;
+}
+input[type=radio] {
+   padding-right: 50px;
+   line-height: normal;
+}
+label {
+   display: inline-block;
+   font-weight: normal;
+   margin-right:15px;
+}
+/* Gender Category Styles */
+.gender-category label{
+   font-size: 14px;
+   display: flex;
+   margin-bottom:15px;
+   position: relative;
+}
+#nanny, #parent{
+   margin-right:15px;
+}
+.gender-category{
+   padding:10px 0px;
+   color: black;
+   display: block;
+}
+.gender-category label, .gender-category input{
+   cursor: pointer;
+   display: inline;
+}
+.gender-title{
+   padding-top:15px;
+   font-size: 15px;
+   font-weight: 700;
+   color: hsl(271, 53%, 34%);
+}
+.gender-category input{
+   display: inline-block;
+}
+input[type="radio"]::after{
+   margin-right: 20px;
+}
+input[type="radio"]::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: white;
+    margin-right: 20px;
+    float: left;
+}
+input[type="radio"]:checked::before {
+    background-color: hsl(271, 53%, 34%);
+    vertical-align: middle;
+    margin-right: 20px;
+}
+input[type="radio"]:focus {
+   margin-right: 20px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    .Container {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .Container {
+        max-width: 75%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Container {
+        max-width: 70%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo img {
+        margin-bottom: 10px;
+    }
+
+    .Container {
+        position: static;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 0;
+    }
+}

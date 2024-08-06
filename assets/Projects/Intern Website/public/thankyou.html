@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="./CSS/booking.css">
+  <link rel="stylesheet" href="./CSS/qr.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <style>
+    .accordion {
+      border: 1px solid #E2E8F0;
+      border-radius: 0.5rem;
+    }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background-color: #F7FAFC;
+    }
+
+    .accordion-content {
+      transition: max-height 0.3s ease;
+    }
+
+    .accordion-content.hidden {
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    /* New styles to move the toggle symbol to the right end */
+    .accordion-toggle {
+      margin-left: auto;
+      /* Push the symbol to the right */
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-purple-900 text-white">
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="./booking.html">Book Now</a></li>
+      <li><a href="./userprofile.html">User Profile</a></li>
+      <li><a href="./bookinghistory.html">Booking History</a></li>
+      <li><a href="./contactus.html">Contact Us</a></li>
+    </ul>
+    <ul>
+      <li> <img src="./img/logoB.png" alt="Logo" style="width: 220px; float: left;"></li>
+      <li class="hideOnMobile"><a href="./booking.html">Book Now</a></li>
+      <li class="hideOnMobile"><a href="./userprofile.html">User Profile</a></li>
+      <li class="hideOnMobile"><a href="./bookinghistory.html">Booking History</a></li>
+      <li class="hideOnMobile"><a href="./contactus.html">Contact Us</a></li>
+      <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+
+
+  <div class="container mx-auto mt-10 text-center" >
+    <h1 class="text-6xl font-bold text-white">Thank you, message sent</h1>
+</div>
+<script>
+  function showSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'flex'
+  }
+  function hideSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'none'
+  }
+</script>
+</body>
+
+</html>
