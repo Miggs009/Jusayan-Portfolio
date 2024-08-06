@@ -393,20 +393,35 @@
                 class="project-img"
               />
             </div>
-            <h2 class="experience-sub-title project-title">Brick Game</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Miggs009/Jusayan-Portfolio/tree/main/assets/Projects/BrickGame'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Miggs009/Jusayan-Portfolio/blob/main/assets/Projects/BrickGame/Jusayan_Finals.exe'"
-              >
-                Live Demo
-              </button>
+            <h2 class="experience-sub-title project-title">More Projects</h2>
+              <div class="btn-container">
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="location.href='https://github.com/Miggs009/Jusayan-Portfolio/tree/main/assets/Projects'"
+                >
+                  Github
+                </button>
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="toggleDropdown()"
+                >
+                  Read me
+                </button>
+              </div>
+              <div id="dropdown-message" style="display: none;">
+                Projects are available in the GitHub repository. This section will be updated as additional projects are retrieved and added.
+              </div>
+
+              <script>
+                function toggleDropdown() {
+                  var dropdown = document.getElementById('dropdown-message');
+                  if (dropdown.style.display === 'none') {
+                    dropdown.style.display = 'block';
+                  } else {
+                    dropdown.style.display = 'none';
+                  }
+                }
+              </script>
             </div>
           </div>
         </div>
