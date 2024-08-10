@@ -2,7 +2,7 @@
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDUSE8JAAX8CqJPrG8IP7ZaEpm_6X6GwlA",
+  apiKey: "",
   authDomain: "my-fairee.firebaseapp.com",
   databaseURL: "https://my-fairee-default-rtdb.firebaseio.com",
   projectId: "my-fairee",

@@ -24,7 +24,7 @@ link.classList.add('current-page');
 
     // Firebase configuration
     const firebaseConfig = {
-    apiKey: "AIzaSyDUSE8JAAX8CqJPrG8IP7ZaEpm_6X6GwlA",
+    apiKey: "",
     authDomain: "my-fairee.firebaseapp.com",
     projectId: "my-fairee",
     storageBucket: "my-fairee.appspot.com",
