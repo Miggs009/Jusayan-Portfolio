@@ -54,23 +54,27 @@ a,
 #destop-nav .nav-links {
   display: flex;
   gap: 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
   align-items: center;
   font-size: 1.5rem;
+}
+
+#destop-nav ul,
+#destop-nav li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 #destop-nav .nav-links li {
   list-style: none;
 }
 
-#desktop-nav a {
+#desktop-nav .nav-links a {
   color: #000;
   text-decoration: none;
 }
 
-#desktop-nav a:hover{
+#desktop-nav .nav-links a:hover{
   color: grey;
   text-decoration: none;
   text-underline-offset: 0.3rem;
