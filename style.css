@@ -430,3 +430,69 @@ footer {
 footer p {
   text-align: center;
 }
+
+/* FLOAT NAV SECTION */
+#floating-nav-wrapper{
+    position: fixed;
+    right: 0;
+    bottom: 200px;
+    z-index: 2000;
+    height: 150px;
+    width: 80px;
+}
+
+#floating-toggle{
+    display: none;
+    width: 42px;
+    height: 42px;
+    background: gray;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    font-size: 18px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+#float-nav a{
+    width: 42px;
+    height: 42px;
+    background: gray;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    font-size: 18px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+#floating-nav a:hover{
+    background: #000;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+#floating-toggle{
+    display: block;
+}
+
+#floating-nav{
+    background: gray;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    padding: 12px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#floating-nav.show{
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
