@@ -27,7 +27,11 @@ a,
 }
 
 /* DESKTOP NAV */
-
+#nav-links-container{
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
 #desktop-nav{
   display: flex;
   justify-content: space-around;
