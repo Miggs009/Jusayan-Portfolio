@@ -28,42 +28,41 @@ a,
 
 /* DESKTOP NAV */
 
-nav,
-.nav-links {
+#desktop-nav{
   display: flex;
-}
-
-nav {
   justify-content: space-around;
   align-items: center;
   height: 17vh;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  padding: 0 2rem;
 }
 
-.nav-links {
+#desktop-nav .logo {
+  font-size: 2rem;
+  cursor: default;
+}
+
+#destop-nav .nav-links {
+  display: flex;
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
 }
 
-a {
-  color: black;
+#desktop-nav a {
+  color: #000;
   text-decoration: none;
-  text-decoration-color: white;
 }
 
-a:hover {
+#desktop-nav a:hover{
   color: grey;
-  text-decoration: underline;
-  text-underline-offset: 1rem;
-  text-decoration-color: rgb(181, 181, 181);
-}
-
-.logo {
-  font-size: 2rem;
-}
-
-.logo:hover {
-  cursor: default;
+  text-decoration: none;
+  text-underline-offset: 0.3rem;
 }
 
 /* HAMBURGER MENU */
@@ -431,7 +430,7 @@ footer p {
   text-align: center;
 }
 
-/* FLOAT NAV SECTION */
+/* FLOAT NAV SECTION
 #floating-nav-wrapper{
     position: fixed;
     right: 0;
@@ -496,3 +495,5 @@ footer p {
     opacity: 1;
     pointer-events: auto;
 }
+    */
+
