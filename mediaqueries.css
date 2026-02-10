@@ -10,6 +10,28 @@
   #projects {
     height: fit-content;
   }
+  #floating-toggle{
+    display: block;
+}
+
+#floating-nav{
+    background: gray;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    padding: 12px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#floating-nav.show{
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
 }
 
 @media screen and (max-width: 1200px) {
@@ -45,6 +67,28 @@
   .about-containers {
     margin-top: 0;
   }
+  #floating-toggle{
+    display: block;
+}
+
+#floating-nav{
+    background: gray;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    padding: 12px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#floating-nav.show{
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
 }
 
 @media screen and (max-width: 600px) {
@@ -100,4 +144,27 @@
   .text-container {
     text-align: justify;
   }
+  #floating-toggle{
+    display: block;
 }
+
+#floating-nav{
+    background: gray;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    padding: 12px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#floating-nav.show{
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+}
+
