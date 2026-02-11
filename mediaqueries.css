@@ -57,7 +57,7 @@
   
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   #contact,
   footer {
     height: 40vh;
@@ -109,6 +109,10 @@
   }
   .text-container {
     text-align: justify;
+  }
+  .research-container{
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
 }
