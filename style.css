@@ -159,9 +159,9 @@ a,
 /* SECTIONS */
 
 section {
-  padding-top: 4vh;
-  height: 96vh;
-  margin: 0 10rem;
+  padding-top: 4vh 2rem;
+  min-height: 96vh;
+  /*margin: 0 10rem;*/
   box-sizing: border-box;
   min-height: fit-content;
 }
@@ -289,7 +289,8 @@ section {
 }
 
 .about-containers,
-.about-details-container {
+.about-details-container,
+.reseach-container {
   display: flex;
 }
 
@@ -441,73 +442,6 @@ footer p {
   text-align: center;
 }
 
-/* FLOAT NAV SECTION
-#floating-nav-wrapper{
-    position: fixed;
-    right: 0;
-    bottom: 200px;
-    z-index: 2000;
-    height: 150px;
-    width: 80px;
-}
-
-#floating-toggle{
-    display: none;
-    width: 42px;
-    height: 42px;
-    background: gray;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 42px;
-    font-size: 18px;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-#float-nav a{
-    width: 42px;
-    height: 42px;
-    background: gray;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 42px;
-    font-size: 18px;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-#floating-nav a:hover{
-    background: #000;
-    color: #fff;
-    transform: scale(1.1);
-}
-
-#floating-toggle{
-    display: block;
-}
-
-#floating-nav{
-    background: gray;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: 0.3s ease;
-    position: absolute;
-    bottom: 70px;
-    right: 0;
-    padding: 12px;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#floating-nav.show{
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-}
-    */
-
 /* MODAL OVERLAY */
 .research-modal {
   position: fixed;
@@ -566,30 +500,26 @@ footer p {
 /* RESEARCH SECTION */
 #research {
   margin: 0 10rem;
-  padding-top: 4vh;
+  padding: 4vh 2rem;
 }
 
 .research-container {
-  display: grid;
-  gap: 20px;
-  justify-content: center;
-  grid-template-columns: 1fr 1fr;
-
-  max-width: 1100px;
-  margin: auto;
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-around;
 }
 
 .research-card {
+  padding: 1.5rem;
   flex: 1;
-  max-width: 500px;
-  background: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  margin-top: 3%;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center;
 }
 
 .research-card h2 {
@@ -599,6 +529,7 @@ footer p {
 .research-abstract {
   margin-bottom: 1.5rem;
   line-height: 1.6;
+  text-align: justify;
 }
 
 .research-btn {
