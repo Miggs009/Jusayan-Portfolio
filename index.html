@@ -13,6 +13,7 @@
       <div class="logo">John Miguel Jusayan</div>
         <div class="nav-links">
           <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
           <li><a href="#experience">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -28,6 +29,7 @@
         </div>
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#research" onclick="toggleMenu()">Research</a></li>
           <li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
@@ -131,6 +133,46 @@ meaningful contributions to your organization.
         </div>
       </div>
     </section>
+    <!--Research-->
+    <section id="research">
+      <p class="section__text__p1">Academic Work</p>
+      <h1 class="title">Research Papers</h1>
+
+      <div class="research-container">
+        <div class="research-card">
+          <h2>SPORTS MATCH PREDICTION ANALYSIS APPLYING MACHINE LEARNING MODEL WITH RULE-BASED APPROACH</h2>
+          <p class="research-abstract">
+            This research introduces an innovative approach to sports match prediction, combining machine learning model with a rule-based approach, focusing on the Philippine Basketball Association (PBA) and Premier Volleyball League (PVL). 
+            Objectives include creating a hybrid model, optimizing datasets, and deploying the model in a web application. 
+            The research shows promising accuracy for basketball (82.86%) and volleyball (90.20%), with random forest model and feature importance analysis highlighting key predictors. 
+            The conclusion emphasizes the model's value in sports prediction and recommends further exploration of the proposed approach.
+          </p>
+          <button class="research-btn" data-url="https://drive.google.com/file/d/1XgQMPZWum46dRTPappLkgeJLdkjsKw96/view?usp=drivesdk">View Research</button>
+        </div>
+
+        <div class="research-card">
+          <h2>EVALUATION OF ETHANOL PROPERTY IN GRAPE SEAWEED (CAULERPA RACEMOSA) IN POTENTIAL BIOETHANOL PRODUCTION</h2>
+          <p class="research-abstract">
+            High cost of fuels is emerging in Philippine market. Aside from this, many rural areas in Philippines are not capable to avail or to have access in utilizing fuels. 
+            This study was conducted to identify the total ethanolic percentage of Grape Seaweed. In that way, evaluation of the potential of Grape seaweed as an alternative fuel is suggested. 
+            Through the tests, comparison between the ethanolic property of Caulerpa racemosa and the ethanol that is commercially consumed was done. 
+            The mean concentration of ethanol from Grape seaweed was obtained using gas cromatograph and measured 3.47 %. The Commercially-available biofuel from the study of Sheik et.al 2016 measured 2. 
+            325 % and the difference between the two were computed as 1.131%. This implies that the ethanol from Grape seaweed obtained a higher concentration of ethanol than commercial biofuels and is a possible source for bioethanol extraction using brewer’s yeast as fermentation agent. 
+          </p>
+          <button class="research-btn" data-url="https://drive.google.com/file/d/1pAtQxdMGknBPbXvNG_Qim4OtYhOgJ4bD/view?usp=drivesdk">View Research</button>
+        </div>
+      </div>
+
+    </section>
+      <!-- Modal -->
+    <div id="research-modal" class="research-modal">
+      <div class="research-content">
+        <span id="research-close" onclick="cloneResearch()">&times;</span>
+        <iframe id="research-iframe" src="" frameborder="0" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- ________ -->
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Skills</h1>
