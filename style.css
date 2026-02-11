@@ -161,7 +161,7 @@ a,
 section {
   padding-top: 4vh 2rem;
   min-height: 96vh;
-  /*margin: 0 10rem;*/
+  margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
 }
@@ -500,10 +500,11 @@ footer p {
 /* RESEARCH SECTION */
 #research {
   margin: 0 10rem;
-  padding: 4vh 2rem;
+  padding: 10vh 2rem;
 }
 
 .research-container {
+  padding-top: 3rem;
   display: flex;
   text-align: initial;
   flex-wrap: wrap;
