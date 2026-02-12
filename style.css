@@ -314,6 +314,12 @@ section {
   text-align: center;
 }
 
+.details-container .p1 {
+  color: rgb(53, 53, 53) 0.2rem;
+  text-align: left;
+  text-size-adjust: 2rem;
+}
+
 .section-container {
   gap: 4rem;
   height: 80%;
